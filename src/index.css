@@ -1,0 +1,225 @@
+*, *:before, *:after {
+    box-sizing: inherit;
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+a{
+  text-decoration: none;
+}
+
+.headerdiv{
+  /* background-color: red; */
+  display: flex;
+  justify-content: space-between;
+}
+.headerdiv-logo img{
+  width: 16rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+.headerdiv i{
+  font-size: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-right: 2rem;
+  color: #306997;
+}
+.headerdiv i:hover{
+  color: #0270ca;
+  transition: 0.2s;
+}
+
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.hero{
+  width: 100%;
+  background-color: #F0F8FF;
+}
+.hero img{
+  width: 100%;
+  }
+.hero a{
+  background-color: #0270ca;
+  color: white;
+  position: relative;
+  left: 49rem;
+  bottom: 7rem;
+  font-weight: bold;
+  padding: 1.1rem;
+  border-radius: 5px;
+  font-size: 1.7rem;
+}
+.hero a:hover{
+  background-color: #028cfd;
+  transition: 0.2s;
+}
+
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.formulariodiv{
+  background-color: #F0F8FF;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5rem;
+}
+.formulariodiv-text h2{
+  color: #0270ca;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+.formulariodiv-text p{
+  margin-bottom: 2rem;
+}
+.formulariodiv-datos span{
+  color: red;
+  margin-right: 5px;
+}
+
+.formulariodiv-datos input{
+  /* background-color: greenyellow; */
+  margin-left: 9rem;
+  width: 100%;
+  margin-bottom: 3rem;
+  position: relative;
+  bottom: 1.5rem;
+  border: solid 1px;
+  border-radius: 5px;
+  padding: 10px 5px; 
+}
+.formulariodiv-datos textarea{
+  width: 100%;
+  height: 10rem;
+  /* background-color: red; */
+  margin-left: 9rem;
+  border-radius: 5px;
+  border: solid 1px;
+  padding: 5px 5px;
+}
+.formulariodiv-datos-mensaje{
+  /* background-color: gray; */
+  width: 40rem;
+}
+.formulariodiv-datos-mensaje label{
+  /* background-color: aqua; */
+  position: relative;
+  top: 1rem;
+}
+.formulariodiv-datos-enviar button{
+  margin-top: 3rem;
+  position: relative;
+  left: 20rem;
+  background-color: #0270ca;
+  color: white;
+  border-radius: 5px;
+  padding: 1rem 4rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+}
+.formulariodiv-datos-enviar button:hover{
+  background-color: #028cfd;
+  transition: 0.2s;
+  cursor: pointer;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+footer{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+footer div{
+  margin-right: 6rem;
+  margin-left: 6rem;
+}
+.footerlogo p{
+  /* background-color: red; */
+  position: relative;
+  right: 3rem;
+  top: 1rem;
+  font-weight: 600;
+}
+.footercontacto{
+  text-align: center;
+}
+.footercontacto h3{
+  /* background-color: red; */
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+}
+.footercontacto p{
+  margin-top: 10px;
+}
+
+
+/************************************************INGRESAR PAGE************************************************/
+/************************************************INGRESAR PAGE************************************************/
+/************************************************INGRESAR PAGE************************************************/
+/************************************************INGRESAR PAGE************************************************/
+
+.formularioingresarpagediv{
+  /* background-color: red; */
+  border-top: solid 1px #028cfd;
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+  padding-top: 2rem;
+}
+.formularioingresarpagediv h2{
+  font-size: 2rem;
+  margin-left: 9rem;
+}
+.formularioingresarpagediv-ingreso{
+  margin-top: 3rem;
+}
+.formularioingresarpagediv-ingreso span{
+  color: red;
+  margin-right: 5px;
+}
+.formularioingresarpagediv-ingreso-email label{
+  /* background-color: burlywood; */
+  position: relative;
+  left: 2rem;
+
+}
+.formularioingresarpagediv-ingreso input{
+  width: 100%;
+  margin-left: 6rem;
+  position: relative;
+  bottom: 1.5rem;
+  padding: 5px;
+  outline: none;
+}
+.formularioingresarpagediv-boton button{
+  color: white;
+  background-color: #0270ca;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  margin-left: 15rem;
+}
+.formularioingresarpagediv-recuperar{
+  margin-left: 10rem;
+  margin-top: 1rem;
+}
+.formularioingresarpagediv-recuperar span{
+  color: #028cfd;
+}
+
+.footeringresarpage{
+  background-color: #F8F9FA;
+  margin-top: 15rem;
+  padding-bottom: 25px;
+  padding-top: 10px;
+}
