@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira:wght@300;400;700&display=swap');
 *, *:before, *:after {
     box-sizing: inherit;
     padding: 0;
@@ -7,55 +9,193 @@
 a{
   text-decoration: none;
 }
-
-.headerdiv{
-  /* background-color: red; */
+/* div header*/
+.headerdiv {
   display: flex;
   justify-content: space-between;
+  align-items: center; 
 }
-.headerdiv-logo img{
-  width: 16rem;
-  margin-top: 1rem;
+
+/* Logo */
+.headerdiv-logo img {
+  width: 17rem;
+  
   margin-left: 1rem;
+  max-width: 100%;
+  height: auto;
 }
-.headerdiv i{
-  font-size: 3rem;
+
+/* iconos */
+.headerdiv i {
+  font-size: 2.9rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
   margin-right: 2rem;
   color: #306997;
 }
-.headerdiv i:hover{
+
+.headerdiv i:hover {
   color: #0270ca;
   transition: 0.2s;
 }
+
+
+@media (max-width: 600px) {
+  .headerdiv {
+    justify-content: space-between;
+    
+  }
+
+  .headerdiv-logo img {
+    width: 12rem; 
+    margin-left: 5px;
+    
+   
+  }
+
+  .headerdiv i {
+    font-size: 2.3rem; 
+    margin-right: 1rem;
+  }
+}
+
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .headerdiv {
+    justify-content: space-between;
+    margin: -7px;
+    padding: 3px;
+    
+  }
+
+  .headerdiv-logo img {
+    width: 16rem; 
+  }
+
+
+}
+
 
 /************************************************/
 /************************************************/
 /************************************************/
 /************************************************/
-.hero{
-  width: 100%;
-  background-color: #F0F8FF;
-}
-.hero img{
-  width: 100%;
-  }
-.hero a{
-  background-color: #0270ca;
-  color: white;
+.hero {
   position: relative;
-  left: 49rem;
-  bottom: 7rem;
-  font-weight: bold;
-  padding: 1.1rem;
+  text-align: center;
+
+
+}
+
+.hero-image {
+  width: 100%; 
+  height: auto;
+}
+
+div .icono {
+  position: absolute; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  width: 95px; 
+  height: 74px; 
+}
+
+div .logo2{
+  position: absolute;
+  left: 51%; 
+  margin-top: 6%;
+  transform: translateX(-50%); 
+  width: 15rem; 
+  height: 6rem; 
+  
+}
+
+
+div .eslogan {
+  position: absolute;
+  left: 50%; 
+  margin-top: -80px;
+  transform: translateX(-50%);
+
+  display: flex;
+  margin-bottom: 50px;
+  flex-direction: row;
+  align-items: center;
+  gap: 1px;
+  top: 45%; 
+  z-index: 3; 
+}
+
+@media (max-width: 600px) {
+  div .eslogan {
+    flex-direction: column; 
+    gap: 5px;
+    top: 50%;
+    width: 100%;
+  }
+}
+
+
+
+
+
+div .eslogan .PD{
+  color: #F0F8FF;
+ 
+  font-family: 'Reenie Beanie';
+  font-size: 100px;
+  font-weight: 300; 
+  
+ 
+}
+div .eslogan .PC{
+  color: #F0F8FF;
+  font-size: 3.5rem;
+  font-weight: 500; 
+  font-family: 'Saira', sans-serif;
+}
+
+div .parrafo{
+  color: #F0F8FF;
+  position: absolute;
+  left: 50%; 
+  font-size: 20px;
+  top: 70%; 
+  
+  width: 100%;
+  transform: translate(-50%, -50%); 
+  background-color: hsl(210, 9%, 22%, 50%);
+  padding: 45px;
+  
+}
+
+
+
+
+.button {
+  position: absolute; 
+  bottom: 20px; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  padding: 10px 5vw; 
+  background-color: #306998;
+  color: white;
+  border: none;
   border-radius: 5px;
-  font-size: 1.7rem;
+  cursor: pointer;
+  font-size: clamp(14px, 2vw, 18px); 
+  width: auto;
+  min-width: 120px; 
+  max-width: 300px; 
+  height: auto; 
+  text-align: center;
 }
-.hero a:hover{
-  background-color: #028cfd;
-  transition: 0.2s;
+
+
+.button:hover {
+  background-color: #316cac; 
 }
+
 
 /************************************************/
 /************************************************/
@@ -141,6 +281,20 @@ footer div{
   margin-right: 6rem;
   margin-left: 6rem;
 }
+
+.logoFoter {
+  display: flex;
+  justify-content: flex-start; 
+  width: 100%;
+}
+
+.logoFoter img {
+  max-width: 150px;
+  height: auto;
+  margin-right: auto; 
+}
+
+
 .footerlogo p{
   /* background-color: red; */
   position: relative;
@@ -148,6 +302,9 @@ footer div{
   top: 1rem;
   font-weight: 600;
 }
+
+
+
 .footercontacto{
   text-align: center;
 }
@@ -161,6 +318,43 @@ footer div{
 .footercontacto p{
   margin-top: 10px;
 }
+
+
+@media (max-width: 600px) {
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 4rem;
+    gap: 1rem;
+  }
+  
+  .footerlogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 100px;
+    justify-content: center;
+    margin-bottom: 4rem;
+  }
+  
+  .footerlogo p {
+    font-size: 15px;
+    max-width: 80%;
+    white-space: nowrap; 
+    
+    text-overflow: ellipsis; 
+  }
+  
+  
+ 
+
+}
+
+
+
 
 
 /************************************************INGRESAR PAGE************************************************/

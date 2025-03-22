@@ -7,11 +7,13 @@ export default function Footer() {
 
         <footer>
           <div className='footerlogo'>
-
+            
             <img src={logo} alt="logo.png" />
-            <p>Diseño, publicidad y desarrollo de soluciones tecnológicas</p>
+            <p className='slogan2'>Diseño, publicidad y desarrollo de soluciones tecnológicas</p> 
+            
 
           </div>
+          
           <div className='footercontacto'>
             <h3>Contacto</h3>
             <p>contacto@pixelcode.cl</p>
