@@ -1,7 +1,6 @@
 import {Link, NavLink}  from 'react-router-dom'
 
-
-export default function FormularioIngresarPage() {
+export default function FormularioForgot() {
 
   return (
     <>
@@ -11,7 +10,8 @@ export default function FormularioIngresarPage() {
             <form action="">
 
                 <div className="formularioingresarpagediv-h2">
-                    <h2>Ingresa a tu cuenta</h2>
+                    <h2>Recupera tu contraseña</h2>
+                    <p className="subtitulo">Ingresa tus email y recibirás un correo con instrucciones para recuperar tu cuenta</p>
                 </div>
 
                 <div className="formularioingresarpagediv-ingreso">
@@ -21,20 +21,16 @@ export default function FormularioIngresarPage() {
                         <input type="email"/>
                     </div>
 
-                    <div className="formularioingresarpagediv-ingreso-contraseña">
-                        <label htmlFor=""><span>*</span>Contraseña:</label>
-                        <input type="password"/>
-                    </div>
 
                 </div>
                 
                 <div className="formularioingresarpagediv-boton">
-                    <button>Ingresar</button>
+                    <button>Recuperar</button>
                 </div>
 
                 <div className="formularioingresarpagediv-recuperar">
                 <p>Si aun no tienes tu cuenta, créala <span><Link to="/FormularioSignup">aqui</Link></span></p>
-                    <p>Si olvidaste tu contraseña, recupérala <span><Link to="/FormularioForgot">aqui</Link></span></p>
+                <p>Si tienes una cuenta, ingresa <span><Link to="/FormularioIngresarPage">aqui</Link></span></p>
                 </div>
             </form>
 

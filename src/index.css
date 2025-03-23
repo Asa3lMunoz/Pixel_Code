@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+body {
+  font-family: 'Roboto', sans-serif;
+}
 *, *:before, *:after {
     box-sizing: inherit;
     padding: 0;
@@ -34,6 +38,16 @@ a{
 /************************************************/
 /************************************************/
 /************************************************/
+@media screen and (max-width: 1024px) {
+.hero a {
+  left: 0; 
+  bottom: 2rem;
+  display: block;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+}
+}
 .hero{
   width: 100%;
   background-color: #F0F8FF;
@@ -217,9 +231,120 @@ footer div{
   color: #028cfd;
 }
 
+/************************************************FOOTER************************************************/
+/************************************************FOOTER************************************************/
+/************************************************FOOTER************************************************/
+/************************************************FOOTER************************************************/
+
 .footeringresarpage{
   background-color: #F8F9FA;
   margin-top: 15rem;
   padding-bottom: 25px;
   padding-top: 10px;
 }
+
+/************************************************FORMULARIO SIGNUP************************************************/
+/************************************************FORMULARIO SIGNUP************************************************/
+/************************************************FORMULARIO SIGNUP************************************************/
+/************************************************FORMULARIO SIGNUP************************************************/
+
+/* Contenedor principal */
+.formulario-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Título principal */
+.titulo {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Subtítulo */
+.subtitulo {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Estilos generales del formulario */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Contenedor de cada campo */
+.campo {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+/* Etiquetas */
+.campo label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+/* Estilos para los campos de entrada */
+.campo input {
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.campo input:focus {
+  border-color: #007bff;
+}
+
+/* Icono de requerido en rojo */
+.obligatorio {
+  color: red;
+}
+
+/* Botón de registro */
+.boton-registrar {
+  background-color: #0270ca; /* Azul principal */
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  width: 150px;
+  display: block;
+  margin: 20px auto; /* Centra el botón automáticamente */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+  transition: background 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.boton-registrar:active {
+  transform: scale(0.98); /* Efecto de presión */
+}
+
+/* Enlace para iniciar sesión */
+.texto-login {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.texto-login span a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.texto-login span a:hover {
+  text-decoration: underline;
+}
+
