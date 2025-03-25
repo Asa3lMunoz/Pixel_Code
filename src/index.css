@@ -43,12 +43,12 @@ a{
 @media (max-width: 600px) {
   .headerdiv {
     justify-content: space-between;
-    
   }
 
   .headerdiv-logo img {
     width: 12rem; 
     margin-left: 5px;
+    
     
    
   }
@@ -65,6 +65,7 @@ a{
     justify-content: space-between;
     margin: -7px;
     padding: 3px;
+    
     
   }
 
@@ -132,6 +133,7 @@ div .eslogan {
     gap: 5px;
     top: 50%;
     width: 100%;
+    
   }
 }
 
@@ -161,7 +163,6 @@ div .parrafo{
   left: 50%; 
   font-size: 20px;
   top: 70%; 
-  
   width: 100%;
   transform: translate(-50%, -50%); 
   background-color: hsl(210, 9%, 22%, 50%);
@@ -195,6 +196,92 @@ div .parrafo{
 .button:hover {
   background-color: #316cac; 
 }
+
+
+
+
+
+
+@media (max-width: 600px) {
+  .eslogan, .letrae, .parrafo, .icono, .logo2, .hero-image, .PC, .PD, .button{
+    display: none;
+  }
+  .hero-image{
+    display: block;
+    height: 48rem;
+  }
+  .hero .icono{
+    display: block;
+    position: relative;
+    bottom: 48rem;
+    left: 11.7rem;
+  }
+  .hero .logo2{
+    display: block;
+    position: relative;
+    bottom: 49rem;
+  }
+  .hero .PD{
+    display: block;
+    position: relative;
+    right: 6rem;
+    bottom: 25.2rem;
+    /* background-color: red; */
+  }
+  .eslogan h3:nth-child(1){
+    font-size: 5.5rem;
+    /* background-color: blue; */
+    /* color: red; */
+  }
+  
+  .hero .letrae{
+    display: block;
+    position: relative;
+    left: 5px;
+    bottom: 31rem;
+  }
+  .eslogan img{
+    /* background-color: blue; */
+    width: 4rem;
+  }
+
+  .hero .PC{
+    display: block;
+    position: relative;
+    left: 6.6rem;
+    bottom: 37rem;
+  }
+  .eslogan h3:nth-child(3){
+    font-size: 3rem;
+    /* background-color: greenyellow; */
+    /* color: yellow; */
+  }
+  div .parrafo{
+    display: block;
+    position: relative;
+    bottom: 29rem;
+  }
+  .hero button{
+    display: block;
+    position: relative;
+    bottom: 39rem;
+    font-size: 1.5rem;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
+
 
 
 /************************************************/
@@ -267,6 +354,61 @@ div .parrafo{
   transition: 0.2s;
   cursor: pointer;
 }
+
+@media (max-width: 600px) {
+  .formulariodiv{
+    /* background-color: red; */
+    position: relative;
+    bottom: 36.6rem;
+  }
+  .formulariodiv-text{
+    background-color: red;
+    margin-left: 9rem;
+    margin-top: 3rem;
+    width: 23rem;
+  }
+  .formulariodiv-text p{
+    background-color: #306998;
+    width: 100%;
+  }
+  .formulariodiv-datos{
+    /* background-color: yellow; */
+    width: 80%;
+    margin-top: 4rem;
+  }
+  .formulariodiv-datos label{
+    display: block;
+    /* background-color: yellow; */
+    font-size: 1rem;
+    width: 13rem;
+    position: relative;
+    bottom: 2rem;
+    left: 9rem;
+  }
+  .formulariodiv-datos-mensaje label{
+    /* background-color: red; */
+    margin-bottom: 1.5rem;
+  }
+  .formulariodiv-datos input{
+    /* background-color: red; */
+    width: 22rem;
+  }
+  .formulariodiv-datos textarea{
+    width: 22rem;
+    /* background-color: red; */
+  }
+  .formulariodiv-datos-enviar {
+    width: 31rem;    
+  }
+  .formulariodiv-datos-enviar button{
+    /* background-color: red; */
+    position: relative;
+    left: 14rem;
+    
+
+  }
+  
+}
 /************************************************/
 /************************************************/
 /************************************************/
@@ -327,8 +469,11 @@ footer div{
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-bottom: 4rem;
-    gap: 1rem;
+    /* margin-bottom: 4rem; */
+    /* gap: 1rem; */
+    background-color: red;
+    position: relative;
+    bottom: 40rem;
   }
   
   .footerlogo {
@@ -342,10 +487,9 @@ footer div{
   
   .footerlogo p {
     font-size: 15px;
-    max-width: 80%;
-    white-space: nowrap; 
-    
-    text-overflow: ellipsis; 
+    width: 20rem;
+    margin-left: 7rem;
+    /* background-color: blue; */
   }
   
   

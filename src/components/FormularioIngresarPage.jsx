@@ -1,5 +1,4 @@
-
-
+import {Link, NavLink}  from 'react-router-dom'
 export default function FormularioIngresarPage() {
   return (
     <>
@@ -32,6 +31,7 @@ export default function FormularioIngresarPage() {
 
                 <div className="formularioingresarpagediv-recuperar">
                     <p>Si aun no tienes tu cuenta, créala <span>aquí</span></p>
+                    <p>Si aun no tienes tu cuenta, créala <span><Link to="/IndexPage">aqui</Link></span></p>
                     <p>Si olvidaste tu contraseña, recupérala <span>aquí</span></p>
                 </div>
             </form>

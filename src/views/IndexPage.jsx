@@ -14,7 +14,7 @@ export default function IndexPage() {
 
         <Header/>
          
-        <div class="hero">
+        <div className="hero">
           <img src={hero} alt="hero.png" class="hero-image" />
           <img src={icono} alt="icono" class="icono" />
           <img src={Logo2} className="logo2"/>
@@ -37,7 +37,7 @@ export default function IndexPage() {
 
           </div>
 
-          <button class="button">Hablemos!</button>
+          <button className="button">Hablemos!</button>
         </div>
 
 

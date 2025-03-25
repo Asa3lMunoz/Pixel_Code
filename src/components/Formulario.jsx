@@ -11,8 +11,7 @@ export default function Formulario() {
 
                 <div className="formulariodiv-text">
                     <h2>Contacto</h2>
-                    <p> Escuhamos tus propuestas e ideas por locas que sean!<br></br>Completa el formulario y te contactaremos lo antes posible
-                    </p>
+                    <p> Escuhamos tus propuestas e ideas por locas que sean!<br></br>Completa el formulario y te contactaremos lo antes posible</p>
                 </div>
 
                 <div className="formulariodiv-datos">

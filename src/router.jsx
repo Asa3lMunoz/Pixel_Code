@@ -7,6 +7,7 @@ export default function AppRouter() {
     <BrowserRouter>
         <Routes>
             <Route path='/' element={<IndexPage/>} />
+            <Route path='/IndexPage' element={<IndexPage/>} />
             <Route path='/ingresar' element={<Ingresar/>} />
         </Routes>
     </BrowserRouter>
