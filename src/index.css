@@ -6,6 +6,9 @@
     box-sizing: border-box;
     margin: 0;
 }
+body {
+  font-family: 'Roboto', sans-serif;
+}
 a{
   text-decoration: none;
 }
@@ -362,13 +365,13 @@ div .parrafo{
     bottom: 36.6rem;
   }
   .formulariodiv-text{
-    background-color: red;
+    /* background-color: red; */
     margin-left: 9rem;
     margin-top: 3rem;
     width: 23rem;
   }
   .formulariodiv-text p{
-    background-color: #306998;
+    /* background-color: #306998; */
     width: 100%;
   }
   .formulariodiv-datos{
@@ -416,8 +419,8 @@ div .parrafo{
 footer{
   display: flex;
   justify-content: space-evenly;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  /* margin-top: 4rem; */
+  /* margin-bottom: 4rem; */
 }
 footer div{
   margin-right: 6rem;
@@ -445,8 +448,6 @@ footer div{
   font-weight: 600;
 }
 
-
-
 .footercontacto{
   text-align: center;
 }
@@ -455,7 +456,7 @@ footer div{
   text-align: center;
   font-weight: 600;
   font-size: 1.7rem;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 }
 .footercontacto p{
   margin-top: 10px;
@@ -471,7 +472,7 @@ footer div{
     text-align: center;
     /* margin-bottom: 4rem; */
     /* gap: 1rem; */
-    background-color: red;
+    /* background-color: red; */
     position: relative;
     bottom: 40rem;
   }
@@ -511,8 +512,8 @@ footer div{
   border-top: solid 1px #028cfd;
   display: flex;
   justify-content: center;
-  margin-top: 5rem;
-  padding-top: 2rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
 }
 .formularioingresarpagediv h2{
   font-size: 2rem;
@@ -557,7 +558,180 @@ footer div{
 
 .footeringresarpage{
   background-color: #F8F9FA;
-  margin-top: 15rem;
+  margin-top: 22.6rem;
   padding-bottom: 25px;
-  padding-top: 10px;
+}
+
+@media (max-width: 600px){
+  .formularioingresarpagediv-h2{
+    /* background-color: red; */
+    width: 29rem;
+    margin-right: 6rem;
+    margin-bottom: 5rem;
+  }
+  .formularioingresarpagediv div{
+    margin-top: 2rem;
+    /* margin-left: px; */
+  }
+  .formularioingresarpagediv label{
+    /* background-color: red; */
+    position: relative;
+    bottom: 1.7rem;
+    left: 6rem;
+  }
+  .formularioingresarpagediv input{
+    /* background-color: blue; */
+    width: 23rem;
+    display: flex;
+  }
+  .ingresarpage footer{
+    /* background-color: blue; */
+    /* margin-top: 50rem; */
+    position: relative;
+    top: 3rem;
+  }
+  .formularioingresarpagediv-recuperar{
+    /* background-color: red; */
+    text-align: center;
+    position: relative;
+    right: 5rem;
+  }
+  .formularioingresarpagediv-recuperar p a{
+    color: #028cfd;
+  }
+  .footeringresarpage{
+    background-color: #F8F9FA;
+    /* background-color: blue; */
+    margin-top: -1rem;
+    padding-bottom: 11rem;
+  }
+}
+@media (max-width: 600px){
+  .formularioingresarpagediv-global footer{
+    background-color: #F8F9FA;
+    position: relative;
+    top: 5rem;
+    padding-top: 2rem;
+    padding-bottom: 8.9rem;
+  }
+}
+/************************************************FORMULARIO SIGNUP************************************************/
+/************************************************FORMULARIO SIGNUP************************************************/
+/************************************************FORMULARIO SIGNUP************************************************/
+/************************************************FORMULARIO SIGNUP************************************************/
+
+/* Contenedor principal */
+.formulario-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Título principal */
+.titulo {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Subtítulo */
+.subtitulo {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Estilos generales del formulario */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Contenedor de cada campo */
+.campo {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+/* Etiquetas */
+.campo label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+/* Estilos para los campos de entrada */
+.campo input {
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.campo input:focus {
+  border-color: #007bff;
+}
+
+/* Icono de requerido en rojo */
+.obligatorio {
+  color: red;
+}
+
+/* Botón de registro */
+.boton-registrar {
+  background-color: #0270ca; /* Azul principal */
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  width: 150px;
+  display: block;
+  margin: 20px auto; /* Centra el botón automáticamente */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+  transition: background 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.boton-registrar:active {
+  transform: scale(0.98); /* Efecto de presión */
+}
+
+/* Enlace para iniciar sesión */
+.texto-login {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.texto-login span a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.texto-login span a:hover {
+  text-decoration: underline;
+}
+
+.formularioingresarpagediv-global footer{
+  background-color: #F8F9FA;
+  margin-top: 22rem;
+  padding: 4.2rem 0rem;
+}
+@media (max-width: 600px){
+  .formulario-container-global footer{
+    background-color: #F8F9FA;
+    /* margin-top: 45rem; */
+    position: relative;
+    top: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 }
