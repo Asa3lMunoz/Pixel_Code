@@ -5,45 +5,36 @@ export default function FormularioForgot() {
 
   return (
     <>
-
-        <div className='formularioingresarpagediv-global'>
-            <Header/>
-
-            <div className="formularioingresarpagediv">
-
-                <form action="">
-
-                    <div className="formularioingresarpagediv-h2">
-                        <h2>Recupera tu contraseña</h2>
-                        <p className="subtitulo">Ingresa tus email y recibirás un correo con instrucciones para recuperar tu cuenta</p>
+        <Header/>
+        <div class="FormularioForget-global">
+        <div class="FormularioForget-container">
+            <form action="#">
+                <div class="FormularioForget-h2">
+                    <h2>Recupera tu contraseña</h2>
+                    <p class="FormularioForget-subtitulo">Ingresa tu email y recibirás un correo con instrucciones para recuperar tu cuenta.</p>
+                </div>
+                <div class="FormularioForget-ingreso">
+                    <div class="FormularioForget-ingreso-email">
+                        <label for="email"><span>*</span>Email:</label>
+                        <input type="email"/>
                     </div>
-
-                    <div className="formularioingresarpagediv-ingreso">
-
-                        <div className="formularioingresarpagediv-ingreso-email">
-                            <label htmlFor=""><span>*</span>Email:</label>
-                            <input type="email"/>
-                        </div>
-
-
-                    </div>
-                    
-                    <div className="formularioingresarpagediv-boton">
-                        <button>Recuperar</button>
-                    </div>
-
-                    <div className="formularioingresarpagediv-recuperar">
+                </div>
+                <div class="FormularioForget-boton">
+                    <button type="submit">Recuperar</button>
+                </div>
+                <div class="FormularioForget-recuperar">
                     <p>Si aun no tienes tu cuenta, créala <span><Link to="/FormularioSignup">aqui</Link></span></p>
                     <p>Si tienes una cuenta, ingresa <span><Link to="/FormularioIngresarPage">aqui</Link></span></p>
-                    </div>
-                </form>
-
-            </div>
-
-            <Footer/>
-
+                </div>
+            </form>
         </div>
 
+         
+    </div>
+    
+    <Footer/>
+  
+      
 
 
     </>

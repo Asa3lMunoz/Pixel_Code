@@ -7,10 +7,10 @@ export default function Ingresar() {
     <>
 
       <div className='ingresarpage'>
-        <Header/>
+       
         <FormularioIngresarPage/>
         <div className='footeringresarpage'>
-          <Footer/>
+      
         </div>
 
       </div>

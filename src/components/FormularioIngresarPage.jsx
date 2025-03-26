@@ -9,7 +9,7 @@ export default function FormularioIngresarPage() {
             <Header/>
             <div className="formularioingresarpagediv">
 
-                <form action="">
+                <form action="#">
 
                     <div className="formularioingresarpagediv-h2">
                         <h2>Ingresa a tu cuenta</h2>
