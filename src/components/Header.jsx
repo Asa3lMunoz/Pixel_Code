@@ -8,11 +8,13 @@ export default function Header() {
 
         <header>
           <div className='headerdiv'>
-
+          
             <div className='headerdiv-logo'>
-              <img src={logo} alt="logo.png"/>
+            <Link to="/"> 
+              <img src={logo} alt="logo.png"/> 
+            </Link>
             </div>
-
+          
             <div className='headerdig-ingresar'>
               <Link to="/Ingresar"><i class="fa-solid fa-user"></i></Link>
             </div>
