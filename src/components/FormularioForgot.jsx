@@ -7,32 +7,32 @@ export default function FormularioForgot() {
     <>
         <Header/>
         <div class="FormularioForget-global">
-        <div class="FormularioForget-container">
-            <form action="#">
-                <div class="FormularioForget-h2">
-                    <h2>Recupera tu contraseña</h2>
-                    <p class="FormularioForget-subtitulo">Ingresa tu email y recibirás un correo con instrucciones para recuperar tu cuenta.</p>
-                </div>
-                <div class="FormularioForget-ingreso">
-                    <div class="FormularioForget-ingreso-email">
-                        <label for="email"><span>*</span>Email:</label>
-                        <input type="email"/>
+            <div class="FormularioForget-container">
+                <form action="#">
+                    <div class="FormularioForget-h2">
+                        <h3>Recupera tu contraseña</h3>
+                        <p class="FormularioForget-subtitulo">Ingresa tu email y recibirás un correo con instrucciones para recuperar tu cuenta.</p>
                     </div>
-                </div>
-                <div class="FormularioForget-boton">
-                    <button type="submit">Recuperar</button>
-                </div>
-                <div class="FormularioForget-recuperar">
-                    <p>Si aun no tienes tu cuenta, créala <span><Link to="/FormularioSignup">aqui</Link></span></p>
-                    <p>Si tienes una cuenta, ingresa <span><Link to="/FormularioIngresarPage">aqui</Link></span></p>
-                </div>
-            </form>
-        </div>
+                    <div class="FormularioForget-ingreso">
+                        <div class="FormularioForget-ingreso-email">
+                            <label for="email">Email:</label>
+                            <input placeholder="Email" type="email"/>
+                        </div>
+                    </div>
+                    <div class="FormularioForget-boton">
+                        <button type="submit">Recuperar</button>
+                    </div>
+                    <div class="FormularioForget-recuperar">
+                        <p>Si aun no tienes tu cuenta, créala <span><Link to="/FormularioSignup">aqui</Link></span></p>
+                        <p>Si tienes una cuenta, ingresa <span><Link to="/FormularioIngresarPage">aqui</Link></span></p>
+                    </div>
 
-         
-    </div>
+
+                </form>
+            </div>     
+        </div>
+        <Footer/>
     
-    <Footer/>
   
       
 

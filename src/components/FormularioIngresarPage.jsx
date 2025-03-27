@@ -31,18 +31,21 @@ export default function FormularioIngresarPage() {
                     
                     <div className="formularioingresarpagediv-boton">
                         <button>Ingresar</button>
+                    
                     </div>
+                    <br />
 
                     <div className="formularioingresarpagediv-recuperar">
                         <p>Si aun no tienes tu cuenta, créala <span><Link to="/FormularioSignup">aquí</Link></span></p>
                         <p>Si olvidaste tu contraseña, recupérala <span><Link to="/FormularioForgot">aquí</Link></span></p>
                     </div>
+
                 </form>
 
             </div>
-            <Footer/>
+            
         </div>
-
+        <Footer/>
 
 
 
