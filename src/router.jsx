@@ -7,7 +7,7 @@ import FormularioForgot from './components/FormularioForgot'
 export default function AppRouter() {
   return (
 
-    <BrowserRouter>
+    <BrowserRouter basename="/Pixel_Code">
         <Routes>
         <Route path='/' element={<IndexPage/>} />
             <Route path='/ingresar' element={<Ingresar/>} />
