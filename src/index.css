@@ -611,150 +611,123 @@ footer div{
 /************************************************INGRESAR PAGE************************************************/
 /************************************************INGRESAR PAGE************************************************/
 /************************************************INGRESAR PAGE************************************************/
-
-.formularioingresarpagediv-global{
-  margin-bottom: 400px;
+.formularioingresarpagediv-global {
   
 }
 
-
-
-.formularioingresarpagediv{
-  /* background-color: red; */
+.formularioingresarpagediv {
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
-  padding-top: 1rem;
-  margin-left: -50px;
-  margin-bottom: -20rem;
-  
+  padding: 2rem; /* Añadí padding para espacio interno */
+  /* Eliminé margin-left: -50px; y margin-bottom: -20rem; */
 }
 
+.formularioingresarpagediv form {
+  width: 100%; /* El formulario ocupa todo el ancho */
+  max-width: 400px; /* Ancho máximo para evitar que se estire demasiado */
+}
 
-.formularioingresarpagediv h2{
+.formularioingresarpagediv h2 {
   font-size: 1.8rem;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin-left: 9rem;
+  text-align: center; /* Centrar el título */
+  margin-bottom: 1rem; /* Espacio debajo del título */
+  margin-left: 0; /* Elimino el margin left que tenia */
 }
-.formularioingresarpagediv-ingreso{
-  margin-top: 3rem;
+
+.formularioingresarpagediv-ingreso {
+  margin-top: 1rem;
 }
-.formularioingresarpagediv-ingreso-email{
-  margin-bottom: 10px;
+
+.formularioingresarpagediv-ingreso-email,
+.formularioingresarpagediv-ingreso-contraseña {
+  margin-bottom: 1rem;
 }
-.formularioingresarpagediv-ingreso span{
+
+.formularioingresarpagediv-ingreso span {
   color: red;
   margin-right: 5px;
 }
-.formularioingresarpagediv-ingreso-email label{
-  /* background-color: burlywood; */
-  position: relative;
-  left: 2rem;
-  font-size: 14px;
 
+.formularioingresarpagediv-ingreso label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 0.2rem;
+  position: static; /* Elimino posicionamiento relativo */
+  left: 0; /* Elimino posicionamiento relativo */
+  right: 0; /* Elimino posicionamiento relativo */
 }
 
-.formularioingresarpagediv-ingreso-contraseña label{
-  position: relative;
-  right: 6px;
-  font-size: 14px;
-
-}
-
-.formularioingresarpagediv-ingreso input{
-  width: 80%;
-  margin-left: 6rem;
-  position: relative;
-  bottom: 1.5rem;
-  padding: 5px;
-  outline: none;
+.formularioingresarpagediv-ingreso input {
+  width: 100%; /* Input ocupa todo el ancho */
+  padding: 0.5rem;
   border: 1px solid lightgray;
+  outline: none;
+  position: static; /* Elimino posicionamiento relativo */
+  bottom: 0; /* Elimino posicionamiento relativo */
+  margin-left: 0; /* Elimino margenes */
 }
 
-.formularioingresarpagediv-boton button{
+.formularioingresarpagediv-boton button {
   color: white;
   background-color: #0060af;
   border: none;
   padding: 10px 20px;
   border-radius: 3px;
-  margin-left: 13rem;
-  
-  margin-top: 14px;
+  display: block;
+  margin: 1rem auto; /* Centrar el botón */
+  margin-left: auto; /* Elimino margenes */
 }
-.formularioingresarpagediv-recuperar{
-  margin-left: 8rem;
+
+.formularioingresarpagediv-recuperar {
+  text-align: center;
   margin-top: 1rem;
   font-size: 13px;
+  margin-left: 0; /* Elimino margenes */
 }
 
-.formularioingresarpagediv-recuperar p{
-  
+.formularioingresarpagediv-recuperar p {
   padding: 6px;
-  
 }
 
-.formularioingresarpagediv-recuperar span{
+.formularioingresarpagediv-recuperar span {
   color: #028cfd;
 }
 
-.footeringresarpage{
+.footeringresarpage {
   background-color: #F8F9FA;
-  margin-top: 22.6rem;
+  margin-top: 5rem; /* Margen reducido */
   padding-bottom: 25px;
 }
 
-@media (max-width: 600px){
-  .formularioingresarpagediv-h2{
-    /* background-color: red; */
-    width: 29rem;
-    margin-right: 6rem;
-    margin-bottom: 5rem;
+/* Media Queries */
+@media (max-width: 600px) {
+  .formularioingresarpagediv form {
+    width: 90%; /* Ajusta el ancho para pantallas pequeñas */
   }
-  .formularioingresarpagediv div{
-    margin-top: 2rem;
-    /* margin-left: px; */
-  }
-  .formularioingresarpagediv label{
-    /* background-color: red; */
-    position: relative;
 
-    bottom: 1.7rem;
-    left: 6rem;
+  .footeringresarpage {
+    margin-top: 2rem; /* Margen reducido aún más */
+    padding-bottom: 5rem; /* Ajuste padding */
   }
-  .formularioingresarpagediv input{
-    /* background-color: blue; */
-    width: 23rem;
-    display: flex;
-  }
-  .ingresarpage footer{
-    /* background-color: blue; */
-    /* margin-top: 50rem; */
-    position: relative;
-    top: 3rem;
-  }
-  .formularioingresarpagediv-recuperar{
-   
+
+  .formularioingresarpagediv-recuperar {
     text-align: center;
-    position: relative;
-    right: 5rem;
+    position: static; /* Elimino posicionamiento relativo */
+    right: 0; /* Elimino posicionamiento relativo */
   }
-  .formularioingresarpagediv-recuperar p a{
-    color: #028cfd;
+
+  /* Elimino los estilos que posicionaban los elementos de manera relativa */
+  .formularioingresarpagediv label {
+    position: static;
+    left: 0;
+    bottom: 0;
   }
-  .footeringresarpage{
-    background-color: #F8F9FA;
-    /* background-color: blue; */
-    margin-top: -1rem;
-    padding-bottom: 11rem;
-  }
-}
-@media (max-width: 600px){
-  .formularioingresarpagediv-global footer{
-    background-color: #F8F9FA;
-    position: relative;
-    top: 5rem;
-    padding-top: 2rem;
-    padding-bottom: 8.9rem;
+
+  .formularioingresarpagediv input {
+    width: 100%;
+    position: static;
+    bottom: 0;
   }
 }
 /************************************************FORMULARIO SIGNUP************************************************/

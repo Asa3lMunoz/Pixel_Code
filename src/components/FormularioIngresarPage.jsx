@@ -4,9 +4,9 @@ import Footer from "../components/Footer";
 export default function FormularioIngresarPage() {
   return (
     <>
-
+        <Header/>
         <div className="formularioingresarpagediv-global">
-            <Header/>
+            
             <div className="formularioingresarpagediv">
 
                 <form action="#">
@@ -43,9 +43,11 @@ export default function FormularioIngresarPage() {
                 </form>
 
             </div>
-            
+             
         </div>
-        <Footer/>
+        <Footer/>           
+        
+        
 
 
 

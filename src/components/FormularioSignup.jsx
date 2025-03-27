@@ -125,11 +125,9 @@ export default function FormularioSignup() {
               
 
           </div>
-          
-         
-
-
         </div>
+        
+        <Footer/>  
         
 
 
