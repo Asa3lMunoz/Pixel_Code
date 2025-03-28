@@ -84,6 +84,11 @@ a{
 /************************************************/
 /************************************************/
 /************************************************/
+.indexpageblobal footer{
+  /* background-color: red; */
+  margin-top: 5rem;
+  padding-bottom: 2rem;
+}
 .hero {
   position: relative;
   text-align: center;
@@ -270,6 +275,12 @@ div .parrafo{
     bottom: 39rem;
     font-size: 1.5rem;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+
+  }
+  .indexpageblobal footer{
+    margin-top: -33rem;
+    padding-bottom: 2rem;
+    background-color: red;
 
   }
 
@@ -515,6 +526,7 @@ div .parrafo{
   .footerForget{
     margin-top: 33rem;
   }
+
 }
 
 /************************************************/
@@ -611,9 +623,6 @@ footer div{
 /************************************************INGRESAR PAGE************************************************/
 /************************************************INGRESAR PAGE************************************************/
 /************************************************INGRESAR PAGE************************************************/
-.formularioingresarpagediv-global {
-  
-}
 
 .formularioingresarpagediv {
   display: flex;
@@ -696,8 +705,10 @@ footer div{
 
 .footeringresarpage {
   background-color: #F8F9FA;
-  margin-top: 5rem; /* Margen reducido */
-  padding-bottom: 25px;
+  margin-top: 18.7rem; 
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+
 }
 
 /* Media Queries */
@@ -706,9 +717,11 @@ footer div{
     width: 90%; /* Ajusta el ancho para pantallas pequeñas */
   }
 
-  .footeringresarpage {
-    margin-top: 2rem; /* Margen reducido aún más */
-    padding-bottom: 5rem; /* Ajuste padding */
+  .footeringresarpage{
+    margin-top: 8rem; 
+    padding-bottom: 3rem; /* Ajuste padding */
+    /* margin-bottom: -50rem; */
+    background-color: #F8F9FA;
   }
 
   .formularioingresarpagediv-recuperar {

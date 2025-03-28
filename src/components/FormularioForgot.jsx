@@ -29,9 +29,11 @@ export default function FormularioForgot() {
 
 
                 </form>
-            </div>     
+            </div>
+               
         </div>
         <Footer/>
+
     
   
       

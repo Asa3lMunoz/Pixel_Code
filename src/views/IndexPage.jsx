@@ -12,38 +12,44 @@ export default function IndexPage() {
   return (
     <>
 
-        <Header/>
-         
-        <div className="hero">
-          <img src={hero} alt="hero.png" class="hero-image" />
-          <img src={icono} alt="icono" class="icono" />
-          <img src={Logo2} className="logo2"/>
+        <div className="indexpageblobal">
+          
 
-          <div className="eslogan">
-            <h3 className="PD">Diseño</h3>
-
-            <img src={Letra} className="letrae"/>
-            <h3 className="PC">Código</h3>
+          <Header/>
+          
+          <div className="hero">
+            <img src={hero} alt="hero.png" class="hero-image" />
+            <img src={icono} alt="icono" class="icono" />
+            <img src={Logo2} className="logo2"/>
+  
+            <div className="eslogan">
+              <h3 className="PD">Diseño</h3>
+  
+              <img src={Letra} className="letrae"/>
+              <h3 className="PC">Código</h3>
+            </div>
+  
+            <div className="parrafo">
+              <p>
+                En PixelCode tenemos la experiencia necesaria para que juntos llevemos a la realidad tus ideas y proyectos.
+              </p>
+              <br />
+              <p>
+                Nos caracterizamos por diseñar y desarrollar soluciones incorporando a nuestros clientes durante todo el proceso, lo que nos permite llegar en conjunto, a productos precisos y acorde a la realidad de cada cliente.
+              </p>
+  
+            </div>
+  
+            <button className="button">Hablemos!</button>
           </div>
+  
+  
+  
+          <Formulario/>
+          <Footer/>
 
-          <div className="parrafo">
-            <p>
-              En PixelCode tenemos la experiencia necesaria para que juntos llevemos a la realidad tus ideas y proyectos.
-            </p>
-            <br />
-            <p>
-              Nos caracterizamos por diseñar y desarrollar soluciones incorporando a nuestros clientes durante todo el proceso, lo que nos permite llegar en conjunto, a productos precisos y acorde a la realidad de cada cliente.
-            </p>
-
-          </div>
-
-          <button className="button">Hablemos!</button>
         </div>
 
-
-
-        <Formulario/>
-        <Footer/>
         
     </>
   )

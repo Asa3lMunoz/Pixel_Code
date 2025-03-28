@@ -31,10 +31,7 @@ export default function FormularioSignup() {
   return (
     <>
         <div className="formulario-container-global">
-
-
           <Header/>
-
           <div className="formulario-container">
                 <h2 className="titulo">Bienvenido a PixelCode!</h2>
                 <p className="subtitulo">Ingresa tus datos para crear tu cuenta</p>
@@ -125,9 +122,9 @@ export default function FormularioSignup() {
               
 
           </div>
+          <Footer/>
         </div>
-        
-        <Footer/>  
+          
         
 
 

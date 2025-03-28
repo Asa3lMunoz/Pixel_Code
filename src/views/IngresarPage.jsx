@@ -10,9 +10,9 @@ export default function Ingresar() {
        
         <FormularioIngresarPage/>
         <div className='footeringresarpage'>
+          <Footer/>
       
         </div>
-
       </div>
 
     </>

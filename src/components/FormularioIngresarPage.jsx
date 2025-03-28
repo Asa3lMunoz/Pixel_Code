@@ -43,9 +43,9 @@ export default function FormularioIngresarPage() {
                 </form>
 
             </div>
+            <Footer/>
              
-        </div>
-        <Footer/>           
+        </div>         
         
         
 
