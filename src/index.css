@@ -863,3 +863,75 @@ footer div{
     padding-bottom: 2rem;
   }
 }
+
+
+/************************************************TEST LOGO************************************************/
+/************************************************TEST LOGO************************************************/
+/************************************************TEST LOGO************************************************/
+/************************************************TEST LOGO ************************************************/
+
+
+/* LOGO */
+.headerdiv-logo img {
+  height: 50px;
+  cursor: pointer;
+}
+
+/* Ícono de usuario */
+.headerdiv-ingresar {
+  position: relative;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Botón de ingresar */
+.login-button {
+  background-color: white;
+  color: #3498db;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.login-button:hover {
+  background-color: #2980b9;
+  color: white;
+}
+
+/* Menú desplegable */
+.dropdown-menu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: white;
+  color: black;
+  list-style: none;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 150px;
+  z-index: 1000;
+}
+
+.dropdown-menu li {
+  padding: 10px;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background: #f1f1f1;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+
+
+
+
