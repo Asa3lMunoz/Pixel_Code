@@ -861,3 +861,44 @@ footer div{
     padding-bottom: 2rem;
   }
 }
+/**********************COMPONENTE CONTACTO**************************/
+/**********************COMPONENTE CONTACTO**************************/
+/**********************COMPONENTE CONTACTO**************************/
+/**********************COMPONENTE CONTACTO**************************/
+.contenedorcontacto{
+  /* background-color: red; */
+  border-spacing: 10px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10rem;
+}
+.contenedorcontacto table{
+  /* background-color: red; */
+  border-radius: 3px;
+  border-collapse: collapse;
+}
+.contenedorcontacto-table th{
+  border-bottom: 1px solid #e4e4e4;
+  text-align: left;
+  padding: 1rem;
+}
+.contenedorcontacto-table td{
+  /* background-color: aqua; */
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e4e4e4;
+  text-align: left;
+  padding-top: 1rem;
+  padding: 1rem;
+}
+.contenedorcontacto-table th:nth-child(1), th:nth-child(2){
+  width: 9rem;
+}
+.contenedorcontacto-table th:nth-child(3){
+  width: 15rem;
+}
+.contenedorcontacto-table th:nth-child(4){
+  width: 10rem;
+}
+.contenedorcontacto-table th:nth-child(5){
+  width: 30rem;
+}
