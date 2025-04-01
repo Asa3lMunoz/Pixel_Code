@@ -6,12 +6,16 @@ import FormularioIngresarPage from './components/FormularioIngresarPage'
 import FormularioForgot from './components/FormularioForgot'
 import Contacto from './components/Contacto'
 import UserProfile from './components/UserProfile'
+
+
+
 export default function AppRouter() {
   return (
 
     <BrowserRouter basename="/Pixel_Code">
         <Routes>
         <Route path='/' element={<IndexPage/>} />
+          
             <Route path='/ingresar' element={<Ingresar/>} />
             <Route path='/FormularioSignup' element={<FormularioSignup/>} />
             <Route path='/FormularioIngresarPage' element={<FormularioIngresarPage/>} />
