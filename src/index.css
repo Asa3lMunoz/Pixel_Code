@@ -874,13 +874,117 @@ footer div{
 }
 
 @media (max-width: 600px) {
-  .formulario-container-global footer {
+  .formulario_container_global footer {
     background-color: #F8F9FA;
     /* margin-top: 45rem; */
     position: relative;
     top: 3rem;
     padding-top: 2rem;
     padding-bottom: 2rem;
+  }
+}
+/******************Componente Regsitro*****************************/
+/******************************************************************/
+/******************************************************************/
+/******************************************************************/
+/* Estilos generales del formulario */
+.formulario_container_global {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.formulario-container {
+  width: 90%;
+  max-width: 850px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.subtitulo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.formulario label {
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.campo_registro {
+  margin-bottom: 15px;
+}
+
+.campo_registro input {
+  width: 100%;
+  padding: 10px;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.obligatorio {
+  color: red;
+}
+
+.boton-registrar {
+  background-color: #0366d1;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 20%;
+  text-align: center;
+  margin-left: auto; 
+  margin-right: auto; 
+  display: block; 
+}
+
+.boton-registrar:hover {
+  background-color: #0056b3;
+}
+
+.texto-login {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.texto-login span a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.texto-login span a:hover {
+  text-decoration: underline;
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 600px) {
+  .formulario-container {
+    padding: 15px;
+  }
+
+  .campo_registro input {
+    padding: 8px;
+  }
+
+  .boton-registrar {
+    padding: 8px 12px;
   }
 }
 /**********************COMPONENTE CONTACTO**************************/

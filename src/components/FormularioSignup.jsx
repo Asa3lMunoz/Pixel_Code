@@ -30,14 +30,15 @@ export default function FormularioSignup() {
 
   return (
     <>
-        <div className="formulario-container-global">
-          <Header/>
+        <Header/>
+        <div className="formulario_container_global">
+          
           <div className="formulario-container">
                 <h2 className="titulo">Bienvenido a PixelCode!</h2>
                 <p className="subtitulo">Ingresa tus datos para crear tu cuenta</p>
 
                 <form onSubmit={handleSubmit} className="formulario">
-                  <div className="campo">
+                  <div className="campo_registro">
                     <label htmlFor="nombre">
                       <span className="obligatorio">*</span> Nombre:
                     </label>
@@ -51,9 +52,9 @@ export default function FormularioSignup() {
                     />
                   </div>
 
-                  <div className="campo">
+                  <div className="campo_registro">
                     <label htmlFor="apellido">
-                      <span className="obligatorio">*</span> Apellido:
+                      <span className="obligatorio">* </span> Apellido:
                     </label>
                     <input
                       type="text"
@@ -65,9 +66,9 @@ export default function FormularioSignup() {
                     />
                   </div>
 
-                  <div className="campo">
+                  <div className="campo_registro">
                     <label htmlFor="email">
-                      <span className="obligatorio">*</span> Email:
+                      <span className="obligatorio">* </span> Email:
                     </label>
                     <input
                       type="email"
@@ -79,9 +80,9 @@ export default function FormularioSignup() {
                     />
                   </div>
 
-                  <div className="campo">
+                  <div className="campo_registro">
                     <label htmlFor="contraseña">
-                      <span className="obligatorio">*</span> Contraseña:
+                      <span className="obligatorio">* </span> Contraseña:
                     </label>
                     <input
                       type="password"
@@ -93,9 +94,9 @@ export default function FormularioSignup() {
                     />
                   </div>
 
-                  <div className="campo">
+                  <div className="campo_registro">
                     <label htmlFor="repetirContraseña">
-                      <span className="obligatorio">*</span> Repetir Contraseña:
+                      <span className="obligatorio">*</span>Repetir Contraseña:
                     </label>
                     <input
                       type="password"
@@ -122,9 +123,9 @@ export default function FormularioSignup() {
               
 
           </div>
-          <Footer/>
+         
         </div>
-          
+        <Footer/> 
         
 
 
