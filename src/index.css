@@ -983,8 +983,8 @@ footer div{
     padding: 8px;
   }
 
-  .boton-registrar {
-    padding: 8px 12px;
+  .boton-registrar{
+    width: 120px;
   }
 }
 /**********************COMPONENTE CONTACTO**************************/
