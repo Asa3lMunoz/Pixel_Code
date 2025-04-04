@@ -48,7 +48,6 @@ return (
                     <th>Email</th>
                     <th>Teléfono</th>
                     <th>Mensaje</th>
-                    <th>Fecha Recepción</th>
                     <th>Contestado</th>
                 </tr>
             </thead>
@@ -61,6 +60,7 @@ return (
                     <td>{datos.email}</td>
                     <td>{datos.phone}</td>
                     <td>{datos.message}</td>
+                    <td>{datos.answered ? 'Sí' : 'No'}</td>
 
                 </tr>
                 ))}

@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import FormularioIngresarPage from '../components/FormularioIngresarPage'
+import FormularioIngresarPage from './FormularioIngresarPage'
 export default function Ingresar() {
   return (
     <>

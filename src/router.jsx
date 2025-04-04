@@ -1,11 +1,11 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import IndexPage from './views/IndexPage'
 import Ingresar from './views/IngresarPage'
-import FormularioSignup from './components/FormularioSignup'
-import FormularioIngresarPage from './components/FormularioIngresarPage'
-import FormularioForgot from './components/FormularioForgot'
-import Contacto from './components/Contacto'
-import UserProfile from './components/UserProfile'
+import FormularioSignup from './views/FormularioSignup'
+import FormularioIngresarPage from './views/FormularioIngresarPage'
+import FormularioForgot from './views/FormularioForgot'
+import Contacto from './views/Contacto'
+import UserProfile from './views/UserProfile'
 
 
 

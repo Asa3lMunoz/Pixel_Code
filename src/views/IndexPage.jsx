@@ -1,5 +1,5 @@
 import Header from "../components/Header"
-import Formulario from '../components/Formulario'
+import Formulario from './Formulario'
 import Footer from '../components/Footer'
 import hero from '../img/cabezera.png'
 
