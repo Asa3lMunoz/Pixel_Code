@@ -1108,3 +1108,213 @@ footer div{
 .boton-cancelar:hover {
   background-color: rgba(255, 0, 0, 0.1);
 }
+
+
+
+/**********************COMPONENTE MENUADM**************************/
+/**********************COMPONENTE MENUADM**************************/
+/**********************COMPONENTE MENUADM**************************/
+/**********************COMPONENTE MENUADM**************************/
+
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  background: #f8f9fa;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar ul li a:hover {
+  color: #a69a9a;
+}
+
+
+/**********************COMPONENTE GODOCU-PAGE1 + Usuarios + Documentos + Clientes + Dashboard + Contactos**************************/
+/**********************COMPONENTE GODOCU-PAGE1 + Usuarios + Documentos + Clientes + Dashboard + Contactos**************************/
+/**********************COMPONENTE GODOCU-PAGE1 + Usuarios + Documentos + Clientes + Dashboard + Contactos**************************/
+/**********************COMPONENTE GODOCU-PAGE1 + Usuarios + Documentos + Clientes + Dashboard + Contactos**************************/
+.table-container {
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.custom-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.custom-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+
+/**********************COMPONENTE GodocuEditor**************************/
+/**********************COMPONENTE GodocuEditor**************************/
+/**********************COMPONENTE GodocuEditor**************************/
+/**********************COMPONENTE GodocuEditor**************************/
+
+/* Estilos generales */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Contenedor del formulario */
+.form-container, .editor-container {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Grid del formulario */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+/* Campos de entrada */
+input, textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+textarea {
+  height: 80px;
+}
+
+/* Estilos para los radio buttons */
+.radio-group {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Estilos de las áreas de subida de archivos */
+.dropzone {
+  border: 2px dashed #aaa;
+  padding: 15px;
+  text-align: center;
+  color: #666;
+  cursor: pointer;
+}
+
+/* Editor de Emails */
+#editor-container {
+  height: 600px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Botón Guardar Diseño */
+.boton-guardar-diseño{
+  background-color: #007bff;
+  color: white;
+  border: none;
+  margin-right: 20px;
+  padding: 8px 20px;
+  font-size: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Botón Recargar Diseño */
+.boton-recargar-diseño{
+  background-color: #393a3c;
+  color: white;
+  border: none;
+  margin-right: 20px;
+  padding: 8px 20px;
+  font-size: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Botón Decargar Diseño */
+.boton-descargar-diseño{
+  background-color: #358931;
+  color: white;
+  border: none;
+  margin-right: 20px;
+  padding: 8px 20px;
+  font-size: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+/* Botón Eliminar Diseño */
+.boton-eliminar-diseño{
+  background-color: #ffffff;
+  color: red;
+  border: 2px solid red;
+  margin-right: 20px;
+  padding: 8px 20px;
+  font-size: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
