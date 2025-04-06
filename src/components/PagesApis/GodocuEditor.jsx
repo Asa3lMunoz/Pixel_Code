@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import Header from "../components/Header";
-import Menuadm from "../components/Menuadm";
+import Header from "../Header";
+import Menuadm from "../Menuadm";
 
 
 const EmailEditor = () => {

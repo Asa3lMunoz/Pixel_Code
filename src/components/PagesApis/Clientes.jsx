@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import Header from "../components/Header";
-import Menuadm from "../components/Menuadm";
+import Header from "../Header";
+import Menuadm from "../Menuadm";
 
-export default function ContactoRecep() {
+export default function Clientes() {
   return (
     <div>
       <Header />
@@ -13,12 +13,13 @@ export default function ContactoRecep() {
             <tr>
               <th></th>
               <th>Nombre</th>
-              <th>Apellido</th>
+              <th>Razón Social</th>
+              <th>Fecha último Pago</th>
               <th>Email</th>
-              <th>Teléfono</th>
-              <th>Mensaje</th>
-              <th>Fecha Recepción</th>
-              <th>Contestado</th>
+              <th>Web</th>
+              <th>Fecha Creación</th>
+              <th>Fecha Edición</th>
+              <th>Activo</th>
             </tr>
           </thead>
           <tbody>

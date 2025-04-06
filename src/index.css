@@ -1120,10 +1120,12 @@ footer div{
   width: 200px;
   height: 100vh;
   background: #f8f9fa;
+  /* background-color: #007bff; */
   padding: 20px;
   position: fixed;
   left: 0;
-  top: 0;
+  top: 0rem;
+  z-index: 1000;
 }
 
 .sidebar ul {
@@ -1317,4 +1319,57 @@ textarea {
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
+}
+
+
+/**********************COMPONENTE contactoRecep**************************/
+/**********************COMPONENTE contactoRecep**************************/
+/**********************COMPONENTE contactoRecep**************************/
+/**********************COMPONENTE contactoRecep**************************/
+.contactoRecep{
+  /* background-color: red; */
+  margin-top: -7rem;
+}
+/**********************documentosapi**************************/
+/**********************documentosapi**************************/
+/**********************documentosapi**************************/
+/**********************documentosapi**************************/
+.documentosapi{
+  /* background-color: red; */
+  margin-top: -7rem;
+  margin-left: 15rem;
+}
+.documentosapi td:nth-child(1){
+  /* background-color: red; */
+  width: 30rem;
+}
+.documentosapi td:nth-child(2){
+  /* background-color: red; */
+  width: 15rem;
+}
+/**********************dgodocupage**************************/
+/**********************godocupage**************************/
+/**********************godocupage**************************/
+/**********************godocupage**************************/
+.godocupage{
+  margin-top: -7rem;
+  margin-left: 9rem;
+}
+.godocupage a{
+  color: rgb(35, 105, 255);
+}
+/**********************COMPONENTE headerpaneldiv**************************/
+/**********************COMPONENTE headerpaneldiv**************************/
+/**********************COMPONENTE headerpaneldiv**************************/
+/**********************COMPONENTE headerpaneldiv**************************/
+.headerpaneldiv{
+  /* background-color: blueviolet; */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+} 
+.headerpaneldiv img{
+  /* background-color: yellow; */
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  margin-left: 18rem;
+  width: 20rem;
 }

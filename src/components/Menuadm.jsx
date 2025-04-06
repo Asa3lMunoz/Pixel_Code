@@ -5,11 +5,11 @@ const Menuadm = () => {
     <div className="sidebar">
       <ul>
         <li><Link to="/Dashboard">📊 Dashboard</Link></li>
-        <li><Link to="/ContactoRecep">✉️ Contactos</Link></li>
+        <li><Link to="/ContactoPage">✉️ Contactos</Link></li>
         <li><Link to="/Clientes">💼 Clientes</Link></li>
-        <li><Link to="/Documentos">📄 Documentos</Link></li>
-        <li><Link to="/Usuarios">👥 Usuarios</Link></li>
-        <li><Link to="/Godocupage1">📑 Godocu</Link></li>
+        <li><Link to="/DocumentosPage">📄 Documentos</Link></li>
+        <li><Link to="/UsuariosPage">👥 Usuarios</Link></li>
+        <li><Link to="/Godocupage">📑 Godocu</Link></li>
       </ul>
     </div>
   );

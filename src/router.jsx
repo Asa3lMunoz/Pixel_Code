@@ -4,16 +4,16 @@ import Ingresar from './views/IngresarPage'
 import FormularioSignup from './views/FormularioSignup'
 import FormularioIngresarPage from './views/FormularioIngresarPage'
 import FormularioForgot from './views/FormularioForgot'
-import Contacto from './views/Contacto'
+import Contacto from './components/PagesApis/Contacto'
 import UserProfile from './views/UserProfile'
 
 //PAGES PARA ADMINISTRACION
-import GodocuEditor from './views/GodocuEditor'
-import GodocuPage1 from './views/Godocupage1'
-import ContactoRecep from './views/ContactoRecep'
-import Clientes from './views/Clientes'
-import Documentos from './views/Documentos'
-import Usuarios from './views/Usuarios'
+import GodocuEditor from './components/PagesApis/GodocuEditor'
+import GodocuPage from './components/PagesApis/GodocuPage'
+import ContactoPage from './components/PagesApis/ContactoPage'
+import Clientes from './components/PagesApis/Clientes'
+import DocumentosPage from './components/PagesApis/DocumentosPage'
+import UsuariosPage from './components/PagesApis/UsuariosPage'
 
 export default function AppRouter() {
   return (
@@ -30,11 +30,11 @@ export default function AppRouter() {
             <Route path= 'UserProfile' element={<UserProfile/>}/>
             
             <Route path= '/GodocuEditor' element={<GodocuEditor/>}/>
-            <Route path= '/GodocuPage1' element={<GodocuPage1/>}/>
-            <Route path= '/ContactoRecep' element={<ContactoRecep/>}/>
+            <Route path= '/GodocuPage' element={<GodocuPage/>}/>
+            <Route path= '/ContactoPage' element={<ContactoPage/>}/>
             <Route path= '/Clientes' element={<Clientes/>}/>
-            <Route path= '/Documentos' element={<Documentos/>}/>
-            <Route path= '/Usuarios' element={<Usuarios/>}/>
+            <Route path= '/DocumentosPage' element={<DocumentosPage/>}/>
+            <Route path= '/UsuariosPage' element={<UsuariosPage/>}/>
 
         </Routes>
     </BrowserRouter>
