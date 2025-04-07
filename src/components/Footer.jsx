@@ -1,4 +1,5 @@
 import logo from '../img/logo.png'
+import whatsapp from "../img/iconos/whatsapp.png";
 
 export default function Footer() {
   return (
@@ -16,9 +17,12 @@ export default function Footer() {
           
           <div className='footercontacto'>
             <h3>Contacto</h3>
-            <p>contacto@pixelcode.cl</p>
-            <p>+56 9 63731627</p>
-            <p>+56 9 42795499</p>
+            <p>by mikecrea.com</p>
+            <p>proyectos@mikecrea.com</p>
+            <p style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <img src={whatsapp} alt="WhatsApp" style={{ width: '20px', height: '20px' }} />+1 863 440 1417</p>
+
+            
 
           </div>
             

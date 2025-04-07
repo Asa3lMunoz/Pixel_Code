@@ -18,6 +18,7 @@ a{
   justify-content: space-between;
   align-items: center; 
   border-bottom: solid 1px #028cfd;
+  
 }
 
 /* Logo */
@@ -62,12 +63,24 @@ a{
   }
 }
 
+.headerdiv-boton-Login{
+  background-color: white;
+  color: #0270ca;
+  border: 2px solid #0270ca;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: 0.3s;
+}
 
 @media (min-width: 601px) and (max-width: 1024px) {
   .headerdiv {
     justify-content: space-between;
-    margin: -7px;
-    padding: 3px;
+    margin: -10px;
+    padding: 15px;
     
     
   }

@@ -15,9 +15,11 @@ export default function Header() {
             </Link>
             </div>
           
-            <div className='headerdig-ingresar'>
-              <Link to="/Ingresar"><i class="fa-solid fa-user"></i></Link>
-            </div>
+            <div className='headerdiv-boton-Login'>
+            <Link to="/Ingresar"> 
+              Login
+            </Link>
+          </div>
 
           </div>
         </header>

@@ -5,7 +5,8 @@ export default function FormularioIngresarPage() {
   return (
     <>
         <Header/>
-        <div className="formularioingresarpagediv-global">
+        <div className="formulario-container">
+            
             
             <div className="formularioingresarpagediv">
 
@@ -43,10 +44,9 @@ export default function FormularioIngresarPage() {
                 </form>
 
             </div>
-            {/* <Footer/> */}
+           
              
-        </div>         
-        
+        </div>    
         
 
 

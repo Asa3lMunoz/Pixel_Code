@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Formulario() {
   const [firstName, setFirstName] = useState("");
@@ -7,27 +8,37 @@ export default function Formulario() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [captchaToken, setCaptchaToken] = useState(null); // NUEVO
   const navigate = useNavigate();
+
+  const handleCaptchaChange = (token) => {
+    setCaptchaToken(token);
+  };
 
   const EjecutarApi = async (e) => {
     e.preventDefault();
 
+    if (!captchaToken) {
+      alert("Por favor verifica que no eres un robot.");
+      return;
+    }
+
     try {
-        const response = await fetch('http://localhost:3000/api/v1/contactRequests', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              nombres: firstName, 
-              apellidos: lastName, 
-              email: email,
-              telefono: phone, 
-              mensaje: message, 
-              reviewed: false,
-              answered: false,
-            }),
-          });
+      const response = await fetch('http://localhost:3000/api/v1/contactRequests', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          nombres: firstName,
+          apellidos: lastName,
+          email: email,
+          telefono: phone,
+          mensaje: message,
+          reviewed: false,
+          answered: false,
+        }),
+      });
 
       if (response.ok) {
         console.log("Mensaje enviado correctamente sin error");
@@ -36,6 +47,7 @@ export default function Formulario() {
         setEmail("");
         setPhone("");
         setMessage("");
+        setCaptchaToken(null); // limpia token pero no resetea visualmente
         navigate('/Contacto');
       } else {
         console.error("Error al enviar el mensaje:", response.status);
@@ -65,7 +77,7 @@ export default function Formulario() {
               <input
                 type="text"
                 id="firstName"
-                className="input-nombre" 
+                className="input-nombre"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
               />
@@ -77,7 +89,7 @@ export default function Formulario() {
               <input
                 type="text"
                 id="lastName"
-                className="input-apellido" // Ejemplo de className
+                className="input-apellido"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
               />
@@ -89,7 +101,7 @@ export default function Formulario() {
               <input
                 type="email"
                 id="email"
-                className="input-email" // Ejemplo de className
+                className="input-email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -99,7 +111,7 @@ export default function Formulario() {
               <input
                 type="tel"
                 id="phone"
-                className="input-telefono" // Ejemplo de className
+                className="input-telefono"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
               />
@@ -110,11 +122,19 @@ export default function Formulario() {
               </label>
               <textarea
                 id="message"
-                className="textarea-mensaje" // Ejemplo de className
+                className="textarea-mensaje"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
               ></textarea>
             </div>
+
+            <div style={{ margin: "1rem 0", display: "flex", justifyContent: "center" }}>
+              <ReCAPTCHA
+                sitekey="6LdnLw0rAAAAAI1WBcYjReBJq-wd7t0W69bAjQKG"
+                onChange={handleCaptchaChange}
+              />
+            </div>
+
             <div className="formulariodiv-datos-enviar">
               <button type="submit">Enviar</button>
             </div>
