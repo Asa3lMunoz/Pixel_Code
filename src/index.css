@@ -18,7 +18,10 @@ a{
   justify-content: space-between;
   align-items: center; 
   border-bottom: solid 1px #028cfd;
-  
+  width: 100%; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 20px 40px;
 }
 
 /* Logo */
@@ -449,9 +452,10 @@ div .parrafo{
 }
 
 .FormularioForget-container {
-  width: 400px;
-  margin-top: -50px;
-  margin-bottom: -3rem;
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
   
 
 }
@@ -502,7 +506,7 @@ div .parrafo{
 
 .FormularioForget-boton button {
   width: 25%;
-  margin-left: 37%;
+  margin-left: 1%;
   padding: 1rem;
   background-color: #246fac;
   color: white;

@@ -9,6 +9,12 @@ import Logo2 from '../img/Logo2.png'
 import Letra from '../img/E.png'
 
 export default function IndexPage() {
+  const handleScroll = () => {
+    window.scrollBy({
+      top: 730, 
+      behavior: 'smooth',
+    });
+  };
   return (
     <>
 
@@ -40,7 +46,7 @@ export default function IndexPage() {
   
             </div>
   
-            <button className="button">Hablemos!</button>
+            <button className="button" onClick={handleScroll}>Hablemos!</button>
           </div>
   
   

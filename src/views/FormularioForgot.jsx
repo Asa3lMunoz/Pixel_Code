@@ -6,7 +6,7 @@ export default function FormularioForgot() {
   return (
     <>
         <Header/>
-        <div class="FormularioForget-global">
+        <div class="formulario-container">
             <div class="FormularioForget-container">
                 <form action="#">
                     <div class="FormularioForget-h2">

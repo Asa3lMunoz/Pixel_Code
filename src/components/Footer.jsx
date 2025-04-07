@@ -1,5 +1,6 @@
 import logo from '../img/logo.png'
 import whatsapp from "../img/iconos/whatsapp.png";
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -8,8 +9,9 @@ export default function Footer() {
 
         <footer>
           <div className='footerlogo'>
-            
+            <Link to = "/">
             <img src={logo} alt="logo.png" />
+            </Link>
             <p className='slogan2'>Diseño, publicidad y desarrollo de soluciones tecnológicas</p> 
             
 
