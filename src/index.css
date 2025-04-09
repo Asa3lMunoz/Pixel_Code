@@ -1347,6 +1347,45 @@ textarea {
   /* background-color: red; */
   margin-top: -7rem;
 }
+.contenedorcontacto {
+  padding: 150px;
+  overflow-x: auto;
+  max-width: 1650px;
+  margin:  auto;
+}
+
+.contenedorcontacto-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  background-color: #fff;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.contenedorcontacto-table th,
+.contenedorcontacto-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.contenedorcontacto-table thead {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+.contenedorcontacto-table tr:hover {
+  background-color: #f0f0f0;
+}
+
+.contenedorcontacto-table td:last-child {
+  text-align: center;
+}
+
 /**********************documentosapi**************************/
 /**********************documentosapi**************************/
 /**********************documentosapi**************************/
@@ -1375,6 +1414,7 @@ textarea {
 .godocupage a{
   color: rgb(35, 105, 255);
 }
+
 /**********************COMPONENTE headerpaneldiv**************************/
 /**********************COMPONENTE headerpaneldiv**************************/
 /**********************COMPONENTE headerpaneldiv**************************/
@@ -1389,4 +1429,78 @@ textarea {
   margin-bottom: 1rem;
   margin-left: 18rem;
   width: 20rem;
+}
+
+
+
+/**********************PRUEBAS CONTENEDORES GLOBALES ADM**************************/
+/**********************PRUEBAS CONTENEDORES GLOBALES ADM**************************/
+/**********************PRUEBAS CONTENEDORES GLOBALES ADM**************************/
+/**********************PRUEBAS CONTENEDORES GLOBALES ADM**************************/
+
+
+.contenedor-ADM {
+  padding: 150px;
+  overflow-x: auto;
+  max-width: 1650px;
+  margin:  auto;
+}
+
+.contenedor-ADM-2 {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  background-color: #fff;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.contenedor-ADM-2 th,
+.contenedor-ADM-2 td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.contenedor-ADM-2 thead {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+.contenedor-ADM-2 tr:hover {
+  background-color: #f0f0f0;
+}
+
+.contenedor-ADM-2 td:last-child {
+  text-align: center;
+}
+
+/************PAGINACIÓN*******/
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.pagination select {
+  padding: 0.2rem;
+}
+
+.pagination button {
+  padding: 0.3rem 0.6rem;
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination button.active {
+  font-weight: bold;
+  text-decoration: underline;
+  background-color: #ddd;
 }
