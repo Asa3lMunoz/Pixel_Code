@@ -1137,17 +1137,17 @@ footer div{
   width: 200px;
   height: 100vh;
   background: #f8f9fa;
-  /* background-color: #007bff; */
   padding: 20px;
   position: fixed;
   left: 0;
-  top: 0rem;
+  top: 0;
   z-index: 1000;
 }
 
 .sidebar ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .sidebar ul li {
@@ -1165,6 +1165,15 @@ footer div{
 .sidebar ul li a:hover {
   color: #a69a9a;
 }
+
+.main-content {
+  margin-left: 200px; /* importante: igual al ancho de .sidebar */
+  padding: 20px;
+  position: relative;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
 
 
 /**********************COMPONENTE GODOCU-PAGE1 + Usuarios + Documentos + Clientes + Dashboard + Contactos**************************/
@@ -1211,7 +1220,7 @@ footer div{
 
 /* Estilos generales */
 .container {
-  max-width: 1400px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 20px;
   display: flex;
@@ -1442,7 +1451,7 @@ textarea {
 .contenedor-ADM {
   padding: 150px;
   overflow-x: auto;
-  max-width: 1650px;
+  max-width: 1310px;
   margin:  auto;
 }
 
@@ -1450,7 +1459,7 @@ textarea {
   width: 100%;
   border-collapse: collapse;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   background-color: #fff;
   color: #333;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
