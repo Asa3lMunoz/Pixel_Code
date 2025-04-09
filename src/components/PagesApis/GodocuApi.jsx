@@ -8,6 +8,7 @@ function GodocuApi() {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [selectedRows, setSelectedRows] = useState([]); // Estado para las filas seleccionadas
 
   const fetchMessages = async () => {
     try {
@@ -35,14 +36,29 @@ function GodocuApi() {
   const currentRows = datos.slice(indexOfFirstRow, indexOfLastRow);
   const totalPages = Math.ceil(datos.length / rowsPerPage);
 
+  // Función para manejar el cambio en la checkbox
+  const handleCheckboxChange = (index) => {
+    setSelectedRows((prevSelectedRows) => {
+      if (prevSelectedRows.includes(index)) {
+        return prevSelectedRows.filter((item) => item !== index); // Deseleccionar
+      } else {
+        return [...prevSelectedRows, index]; // Seleccionar
+      }
+    });
+  };
+
   return (
     <>
+    
       <div className='contenedor-ADM'>
+
         <table className='contenedor-ADM-2'>
+          
           <thead>
             <tr>
+              <th>Seleccionar</th> {/* Nueva columna para checkbox */}
               <th>Nombre</th>
-              <th>Descripcion</th>
+              <th>Descripción</th>
               <th>Item Agrupación</th>
               <th>Link Descarga</th>
               <th>Fecha Creación</th>
@@ -52,6 +68,13 @@ function GodocuApi() {
           <tbody>
             {currentRows.map((datos, index) => (
               <tr key={index}>
+                <td>
+                  <input
+                    type="checkbox"
+                    checked={selectedRows.includes(index)} // Verificar si esta fila está seleccionada
+                    onChange={() => handleCheckboxChange(index)} // Llamar al handler para actualizar estado
+                  />
+                </td>
                 <td>{datos.name}</td>
                 <td>{datos.category}</td>
                 <td>{datos.category}</td>
@@ -63,6 +86,7 @@ function GodocuApi() {
           </tbody>
         </table>
 
+        {/* Paginación visual */}
         <div className="pagination">
           <span>Filas por página:</span>
           <select

@@ -8,6 +8,7 @@ function Contacto() {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [selectedRows, setSelectedRows] = useState([]); // Estado para las filas seleccionadas
 
   const fetchMessages = async () => {
     try {
@@ -35,12 +36,24 @@ function Contacto() {
   const currentRows = datos.slice(indexOfFirstRow, indexOfLastRow);
   const totalPages = Math.ceil(datos.length / rowsPerPage);
 
+  // Función para manejar el cambio en la checkbox
+  const handleCheckboxChange = (index) => {
+    setSelectedRows((prevSelectedRows) => {
+      if (prevSelectedRows.includes(index)) {
+        return prevSelectedRows.filter((item) => item !== index); // Deseleccionar
+      } else {
+        return [...prevSelectedRows, index]; // Seleccionar
+      }
+    });
+  };
+
   return (
     <>
       <div className='contenedor-ADM'>
         <table className='contenedor-ADM-2'>
           <thead>
             <tr>
+              <th>Seleccionar</th> 
               <th>Nombre</th>
               <th>Apellido</th>
               <th>Email</th>
@@ -53,6 +66,13 @@ function Contacto() {
           <tbody>
             {currentRows.map((datos, index) => (
               <tr key={index}>
+                <td>
+                  <input
+                    type="checkbox"
+                    checked={selectedRows.includes(index)} // Verificar si esta fila está seleccionada
+                    onChange={() => handleCheckboxChange(index)} // Llamar al handler para actualizar estado
+                  />
+                </td>
                 <td>{datos.firstName}</td>
                 <td>{datos.lastName}</td>
                 <td>{datos.email}</td>
