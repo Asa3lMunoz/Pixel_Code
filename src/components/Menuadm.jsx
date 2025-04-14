@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import LogoutButton from "./Logout";
 
 const Menuadm = () => {
   return (
@@ -10,6 +11,7 @@ const Menuadm = () => {
         <li><Link to="/DocumentosPage">📄 Documentos</Link></li>
         <li><Link to="/UsuariosPage">👥 Usuarios</Link></li>
         <li><Link to="/Godocupage">📑 Godocu</Link></li>
+        <li> <LogoutButton/></li>
       </ul>
     </div>
   );
