@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import Header from "../Header";
 import Menuadm from "../Menuadm";
 
-const EmailEditor = () => {
+const GodocuEditor = () => {
   const [bannerImage, setBannerImage] = useState(null);
   const [bannerPreview, setBannerPreview] = useState(null);
   const [dataFile, setDataFile] = useState(null);
+  const [nombreEvento, setNombreEvento] = useState("");
+  const [downloadUrl, setDownloadUrl] = useState("");
 
   useEffect(() => {
     const scriptId = "unlayer-script";
@@ -28,8 +30,6 @@ const EmailEditor = () => {
       };
 
       document.body.appendChild(script);
-    } else {
-      console.log("El script de Unlayer ya está cargado.");
     }
   }, []);
 
@@ -37,11 +37,8 @@ const EmailEditor = () => {
     const file = e.target.files[0];
     if (file) {
       setBannerImage(file);
-
       const reader = new FileReader();
-      reader.onloadend = () => {
-        setBannerPreview(reader.result);
-      };
+      reader.onloadend = () => setBannerPreview(reader.result);
       reader.readAsDataURL(file);
     }
   };
@@ -54,6 +51,28 @@ const EmailEditor = () => {
     }
   };
 
+  const handleGuardarJson = () => {
+    window.unlayer.exportHtml((data) => {
+      fetch("http://localhost:3000/api/v1/editor/guardar-json", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          design: data.design,
+          nombreEvento: nombreEvento.trim() || "sin_nombre",
+        }),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          alert("✅ Diseño guardado como JSON");
+          setDownloadUrl(res.url);
+        })
+        .catch((err) => {
+          alert("❌ Error al guardar el diseño");
+          console.error(err);
+        });
+    });
+  };
+
   return (
     <>
       <Header />
@@ -64,7 +83,12 @@ const EmailEditor = () => {
           <div className="grid">
             <div className="full-width">
               <label>Nombre</label>
-              <input type="text" placeholder="Evento 1" />
+              <input
+                type="text"
+                placeholder="Evento 1"
+                value={nombreEvento}
+                onChange={(e) => setNombreEvento(e.target.value)}
+              />
             </div>
 
             <div className="full-width">
@@ -106,7 +130,6 @@ const EmailEditor = () => {
               </div>
             </div>
 
-            {/* Subida de imagen */}
             <div className="full-width dropzone">
               <label>Imagen para usar como banner</label>
               <input type="file" accept="image/*" onChange={handleBannerChange} />
@@ -120,7 +143,6 @@ const EmailEditor = () => {
               )}
             </div>
 
-            {/* Subida de archivo de datos */}
             <div className="full-width dropzone">
               <label>Archivo de datos</label>
               <input
@@ -135,7 +157,6 @@ const EmailEditor = () => {
               )}
             </div>
 
-            {/* Mostrar info de contacto */}
             <div className="full-width">
               <label>Mostrar información de contacto en página de descarga</label>
               <div className="radio-group">
@@ -152,7 +173,6 @@ const EmailEditor = () => {
           </div>
         </div>
 
-        {/* Editor Unlayer */}
         <div className="editor-container">
           <h2>Diseño de Plantilla</h2>
           <p>
@@ -160,14 +180,33 @@ const EmailEditor = () => {
             <br />
             Por ejemplo, si tu archivo de datos incluye las columnas <code>email</code> y <code>nombre</code>:
           </p>
-          <div id="editor-container" style={{ minHeight: "500px", border: "1px solid #ccc" }}></div>
-          <button type="submit" className="boton-guardar-diseño">📂 Guardar Diseño</button>
-          <button type="submit" className="boton-recargar-diseño">📰 Recargar Diseño</button>
-          <button type="submit" className="boton-eliminar-diseño">🗑️ Eliminar</button>
+          <div
+            id="editor-container"
+            style={{ minHeight: "500px", border: "1px solid #ccc" }}
+          ></div>
+          <button
+            type="button"
+            className="boton-guardar-diseño"
+            onClick={handleGuardarJson}
+          >
+            📂 Guardar evento
+          </button>
+
+          {downloadUrl && (
+            <a
+              href={downloadUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="boton-descargar-json"
+              style={{ display: "inline-block", marginTop: "10px" }}
+            >
+              📥 Descargar Diseño JSON
+            </a>
+          )}
         </div>
       </div>
     </>
   );
 };
 
-export default EmailEditor;
+export default GodocuEditor;

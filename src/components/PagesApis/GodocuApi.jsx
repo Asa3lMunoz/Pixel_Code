@@ -51,7 +51,7 @@ function GodocuApi() {
     <>
     
       <div className='contenedor-ADM'>
-
+        
         <table className='contenedor-ADM-2'>
           
           <thead>
