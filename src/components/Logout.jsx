@@ -7,11 +7,13 @@ function LogoutButton() {
   const handleLogout = () => {
     localStorage.removeItem('user');
     console.log('Sesión cerrada.');
-    navigate('/Login');
+    navigate('/Login'); 
   };
 
   return (
-    <button onClick={handleLogout}>Cerrar Sesión</button>
+    <button onClick={handleLogout} className="logout-link">
+      🚪 Cerrar sesión
+    </button>
   );
 }
 

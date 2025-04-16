@@ -1516,3 +1516,68 @@ textarea {
 
 
  
+
+
+
+
+
+
+/************Login y Logout*******/
+
+.menu-container {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.menu-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  min-width: 150px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.menu-dropdown a {
+  padding: 10px 12px;
+  text-decoration: none;
+  color: #333;
+  display: block;
+  transition: background-color 0.2s ease;
+}
+
+.menu-dropdown a:hover {
+  background-color: #f0f0f0;
+}
+
+.menu-container:hover .menu-dropdown {
+  display: flex;
+}
+
+.logout-link {
+  padding: 10px 12px;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  color: #333;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.logout-link:hover {
+  background-color: #f0f0f0;
+}

@@ -60,7 +60,7 @@ function FormularioIngresarPage() {
                         rol: assignedRole,
                     }));
 
-                    navigate('/Contacto');
+                    navigate('/');
 
                 } else {
                     console.log(datosApi.error)

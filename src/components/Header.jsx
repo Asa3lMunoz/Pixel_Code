@@ -1,6 +1,8 @@
 import { Link, NavLink } from 'react-router-dom';
 import React from 'react';
 import logo from '../img/logo.png';
+import Logout from './Logout';
+
 
 function Header() {
   const storedUser = localStorage.getItem('user');
@@ -16,17 +18,29 @@ function Header() {
           </Link>
         </div>
 
+
+
+
         <div className='headerdiv-boton-Login'>
-          {user ? (
-            <Link to="/Contacto" >
-              {user.nombre} {user.apellido}
-            </Link>
-          ) : (
-            <Link to="/Login">
-              Login
-            </Link>
-          )}
-        </div>
+  {user ? (
+    <div className="menu-container">
+      <button className="menu-button">
+        {user.nombre} {user.apellido} ▾
+      </button>
+      <div className="menu-dropdown">
+        <Link to="/UserProfile">👤 Perfil</Link>
+        {user.rol === 'superAdmin' && (
+          <Link to="/GodocuPage">⚙️ Admin</Link>
+        )}
+        <Logout/> 
+      </div>
+    </div>
+  ) : (
+    <Link to="/Login">Login</Link>
+  )}
+</div>
+
+
 
       </div>
     </header>
