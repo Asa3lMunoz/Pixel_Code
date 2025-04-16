@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import Header from "../Header";
+import HeaderPanel from "../HeaderPanel";
 import Menuadm from "../Menuadm";
 
 export default function Clientes() {
   return (
     <div>
-      <Header />
+      <HeaderPanel />
       <Menuadm />
       <div className="table-container">
         <table className="custom-table">

@@ -3,13 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function GodocuApi() {
+  const navigate = useNavigate(); // ✅ Asegúrate de que esto está dentro del componente
+
   const [datos, setDatos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  const [selectedRows, setSelectedRows] = useState([]); // Estado para las filas seleccionadas
+  const [selectedRows, setSelectedRows] = useState([]);
 
   const fetchMessages = async () => {
     try {
@@ -31,39 +33,35 @@ function GodocuApi() {
   if (loading) return <div>Cargando...</div>;
   if (error) return <div>{error}</div>;
 
-  // Paginación lógica
   const indexOfLastRow = currentPage * rowsPerPage;
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
   const currentRows = datos.slice(indexOfFirstRow, indexOfLastRow);
   const totalPages = Math.ceil(datos.length / rowsPerPage);
 
-  // Función para manejar el cambio en la checkbox
   const handleCheckboxChange = (index) => {
     setSelectedRows((prevSelectedRows) => {
       if (prevSelectedRows.includes(index)) {
-        return prevSelectedRows.filter((item) => item !== index); // Deseleccionar
+        return prevSelectedRows.filter((item) => item !== index);
       } else {
-        return [...prevSelectedRows, index]; // Seleccionar
+        return [...prevSelectedRows, index];
       }
     });
   };
 
   return (
     <>
-    
       <div className='contenedor-ADM'>
-  
-  <div className="acciones-superiores">
-    <button onClick={() => navigate('/GodocuEditor')}>
-      ➕ Crear
-    </button>
-  </div>
         
+        <div className="acciones-superiores">
+          <button onClick={() => navigate('/GodocuEditor')}>
+             Crear
+          </button>
+        </div>
+
         <table className='contenedor-ADM-2'>
-          
           <thead>
             <tr>
-              <th>Seleccionar</th> {/* Nueva columna para checkbox */}
+              <th>Seleccionar</th>
               <th>Nombre</th>
               <th>Descripción</th>
               <th>Item Agrupación</th>
@@ -78,14 +76,18 @@ function GodocuApi() {
                 <td>
                   <input
                     type="checkbox"
-                    checked={selectedRows.includes(index)} // Verificar si esta fila está seleccionada
-                    onChange={() => handleCheckboxChange(index)} // Llamar al handler para actualizar estado
+                    checked={selectedRows.includes(index)}
+                    onChange={() => handleCheckboxChange(index)}
                   />
                 </td>
                 <td>{datos.name}</td>
                 <td>{datos.category}</td>
                 <td>{datos.category}</td>
-                <td><a href={datos.url} target='_blank' rel='noopener noreferrer'>{datos.url}</a></td>
+                <td>
+                  <a href={datos.url} target='_blank' rel='noopener noreferrer'>
+                    {datos.url}
+                  </a>
+                </td>
                 <td>{datos.created}</td>
                 <td>**Faltan los datos**</td>
               </tr>
@@ -93,7 +95,6 @@ function GodocuApi() {
           </tbody>
         </table>
 
-        {/* Paginación visual */}
         <div className="pagination">
           <span>Filas por página:</span>
           <select

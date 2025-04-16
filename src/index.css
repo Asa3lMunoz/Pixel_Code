@@ -1519,7 +1519,28 @@ textarea {
 
 
 
+.acciones-superiores {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+}
 
+.acciones-superiores button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.acciones-superiores button:hover {
+  background-color: #0056b3;
+}
 
 
 /************Login y Logout*******/
