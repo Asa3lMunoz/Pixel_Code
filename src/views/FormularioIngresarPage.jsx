@@ -105,8 +105,8 @@ function FormularioIngresarPage() {
                         </div>
                         <br />
                         <div className="formularioingresarpagediv-recuperar">
-                            <p>Si aun no tienes tu cuenta, créala <span><Link to="/FormularioSignup">aquí</Link></span></p>
-                            <p>Si olvidaste tu contraseña, recupérala <span><Link to="/FormularioForgot">aquí</Link></span></p>
+                            <p>Si aun no tienes tu cuenta, créala <span><Link to="/Signup">aquí</Link></span></p>
+                            <p>Si olvidaste tu contraseña, recupérala <span><Link to="/LostPassword">aquí</Link></span></p>
                         </div>
                     </form>
                 </div>

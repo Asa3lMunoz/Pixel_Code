@@ -115,7 +115,7 @@ export default function FormularioSignup() {
                   <p className="texto-login">
                     Si ya tienes tu cuenta, ingresa{" "}
                     <span>
-                      <Link to="/FormularioIngresarPage">aquí</Link>
+                      <Link to="/Login">aquí</Link>
                     </span>
                   </p>
                 </form>

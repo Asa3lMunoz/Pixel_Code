@@ -6,7 +6,7 @@ const Menuadm = () => {
     <div className="sidebar">
       <ul>
         <li><Link to="/Dashboard">📊 Dashboard</Link></li>
-        <li><Link to="/ContactoPage">✉️ Contactos</Link></li>
+        <li><Link to="/Contacto">✉️ Contactos</Link></li>
         <li><Link to="/Clientes">💼 Clientes</Link></li>
         <li><Link to="/DocumentosPage">📄 Documentos</Link></li>
         <li><Link to="/UsuariosPage">👥 Usuarios</Link></li>

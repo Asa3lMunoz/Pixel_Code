@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function GodocuApi() {
@@ -51,6 +52,12 @@ function GodocuApi() {
     <>
     
       <div className='contenedor-ADM'>
+  
+  <div className="acciones-superiores">
+    <button onClick={() => navigate('/GodocuEditor')}>
+      ➕ Crear
+    </button>
+  </div>
         
         <table className='contenedor-ADM-2'>
           

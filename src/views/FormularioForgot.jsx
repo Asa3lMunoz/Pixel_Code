@@ -23,8 +23,8 @@ export default function FormularioForgot() {
                         <button type="submit">Recuperar</button>
                     </div>
                     <div class="FormularioForget-recuperar">
-                        <p>Si aun no tienes tu cuenta, créala <span><Link to="/FormularioSignup">aqui</Link></span></p>
-                        <p>Si tienes una cuenta, ingresa <span><Link to="/FormularioIngresarPage">aqui</Link></span></p>
+                        <p>Si aun no tienes tu cuenta, créala <span><Link to="/Signup">aqui</Link></span></p>
+                        <p>Si tienes una cuenta, ingresa <span><Link to="/Login">aqui</Link></span></p>
                     </div>
 
 

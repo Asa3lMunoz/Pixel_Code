@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Header from "../Header";
+import HeaderPanel from "../HeaderPanel";
 import Menuadm from "../Menuadm";
 
 const GodocuEditor = () => {
@@ -75,7 +75,7 @@ const GodocuEditor = () => {
 
   return (
     <>
-      <Header />
+      <HeaderPanel />
       <Menuadm />
       <div className="container">
         <div className="form-container">

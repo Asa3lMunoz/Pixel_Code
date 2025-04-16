@@ -50,10 +50,11 @@ function UsuariosApi() {
   return (
     <>
       <div className='contenedor-ADM'>
+        
         <table className='contenedor-ADM-2'>
           <thead>
             <tr>
-              <th>Seleccionar</th> {/* Nueva columna para checkbox */}
+              <th>Seleccionar</th> {/*checkbox */}
               <th>Nombre</th>
               <th>Apellido</th>
               <th>Email</th>
