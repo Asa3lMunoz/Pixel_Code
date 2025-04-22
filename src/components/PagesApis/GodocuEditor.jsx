@@ -8,6 +8,7 @@ const GodocuEditor = () => {
   const [dataFile, setDataFile] = useState(null);
   const [nombreEvento, setNombreEvento] = useState("");
   const [downloadUrl, setDownloadUrl] = useState("");
+  const [currentDesign, setCurrentDesign] = useState(null); // 👉 Nuevo estado para guardar el diseño
 
   useEffect(() => {
     const scriptId = "unlayer-script";
@@ -53,6 +54,8 @@ const GodocuEditor = () => {
 
   const handleGuardarJson = () => {
     window.unlayer.exportHtml((data) => {
+      setCurrentDesign(data.design); // 👉 Guardamos el diseño en memoria
+
       fetch("http://localhost:3000/api/v1/editor/guardar-json", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -71,6 +74,14 @@ const GodocuEditor = () => {
           console.error(err);
         });
     });
+  };
+
+  const handleRecargarDiseno = () => {
+    if (currentDesign) {
+      window.unlayer.loadDesign(currentDesign);
+    } else {
+      alert("⚠️ Aún no hay diseño cargado para recargar.");
+    }
   };
 
   return (
@@ -109,11 +120,6 @@ const GodocuEditor = () => {
             <div className="full-width">
               <label>Encabezado página de descarga</label>
               <input type="text" placeholder="Descargue su cartón" />
-            </div>
-
-            <div className="full-width">
-              <label>Bajada página de descarga</label>
-              <input type="text" placeholder="Utiliza tu email" />
             </div>
 
             <div className="full-width">
@@ -190,6 +196,15 @@ const GodocuEditor = () => {
             onClick={handleGuardarJson}
           >
             📂 Guardar evento
+          </button>
+
+          <button
+            type="button"
+            className="boton-recargar-diseño"
+            onClick={handleRecargarDiseno}
+            style={{ marginLeft: "10px" }}
+          >
+            🔄 Recargar diseño
           </button>
 
           {downloadUrl && (
