@@ -7,6 +7,9 @@ import Contacto from './components/PagesApis/Contacto'
 import UserProfile from './views/UserProfile'
 import ProtectedRoute from '../src/components/ProtectedRoutes'
 
+import CertificadoDescargaPage from './components/PagesApis/CertificadoDescargaPage';
+
+
 
 //PAGES PARA ADMINISTRACION
 import GodocuEditor from './components/PagesApis/GodocuEditor'
@@ -58,6 +61,8 @@ export default function AppRouter() {
             <UsuariosPage />
           </ProtectedRoute>} />
 
+          
+          <Route path="/certificado/:evento" element={<CertificadoDescargaPage/>} />
 
 
         <Route path='/UserProfile' element={

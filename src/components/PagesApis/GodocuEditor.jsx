@@ -8,7 +8,7 @@ const GodocuEditor = () => {
   const [dataFile, setDataFile] = useState(null);
   const [nombreEvento, setNombreEvento] = useState("");
   const [downloadUrl, setDownloadUrl] = useState("");
-  const [currentDesign, setCurrentDesign] = useState(null); // 👉 Nuevo estado para guardar el diseño
+  const [currentDesign, setCurrentDesign] = useState(null);
 
   useEffect(() => {
     const scriptId = "unlayer-script";
@@ -52,27 +52,58 @@ const GodocuEditor = () => {
     }
   };
 
-  const handleGuardarJson = () => {
-    window.unlayer.exportHtml((data) => {
-      setCurrentDesign(data.design); // 👉 Guardamos el diseño en memoria
+  const handleGuardarJson = async () => {
+    if (!dataFile) {
+      alert("⚠️ Debes seleccionar un archivo Excel primero.");
+      return;
+    }
 
-      fetch("http://localhost:3000/api/v1/editor/guardar-json", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          design: data.design,
-          nombreEvento: nombreEvento.trim() || "sin_nombre",
-        }),
-      })
-        .then((res) => res.json())
-        .then((res) => {
-          alert("✅ Diseño guardado como JSON");
-          setDownloadUrl(res.url);
-        })
-        .catch((err) => {
-          alert("❌ Error al guardar el diseño");
-          console.error(err);
+    window.unlayer.exportHtml(async (data) => {
+      const design = data.design;
+      setCurrentDesign(design);
+
+      try {
+        const resJson = await fetch("http://localhost:3000/api/v1/editor/guardar-json", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            design,
+            nombreEvento: nombreEvento.trim() || "sin_nombre",
+          }),
         });
+        const json = await resJson.json();
+        setDownloadUrl(json.url);
+        alert("✅ Diseño guardado como JSON");
+
+        const reader = new FileReader();
+        reader.onload = async () => {
+          const excelBase64 = reader.result.split(",")[1];
+
+          const resCert = await fetch("http://localhost:3000/api/v1/editor/generar-certificados", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              nombreEvento: nombreEvento.trim() || "sin_nombre",
+              excelBase64,
+              nombreArchivo: dataFile.name,
+            }),
+          });
+
+          const certResult = await resCert.json();
+          if (resCert.ok) {
+            alert("🎉 Certificados generados exitosamente.");
+            console.log("Ruta base de certificados:", certResult.rutaBase);
+          } else {
+            console.error(certResult.error);
+            alert("❌ Error generando certificados");
+          }
+        };
+
+        reader.readAsDataURL(dataFile);
+      } catch (err) {
+        console.error("Error general:", err);
+        alert("❌ Error guardando el evento");
+      }
     });
   };
 
