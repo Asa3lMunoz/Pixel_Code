@@ -8,6 +8,8 @@ export default function CertificadoDescargaPage() {
   const [certUrl, setCertUrl] = useState("");
   const [copied, setCopied] = useState(false);
 
+  const bannerUrl = `/Pixel_Code/eventos/${evento}/banner.jpg`;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setCopied(false);
@@ -17,12 +19,12 @@ export default function CertificadoDescargaPage() {
       return;
     }
 
-    const url = `/Pixel_Code/api/v1/certificados/${evento}?email=${email}`;
+    const url = `http://localhost:3000/api/v1/certificados/${encodeURIComponent(evento)}?email=${encodeURIComponent(email)}`;
 
     try {
       const response = await fetch(url);
       if (!response.ok) throw new Error("Certificado no encontrado");
-      setCertUrl(window.location.origin + url);
+      setCertUrl(url);
       setError("");
     } catch (err) {
       setCertUrl("");
@@ -43,6 +45,12 @@ export default function CertificadoDescargaPage() {
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-gray-100">
       <div className="bg-white shadow-md rounded-2xl p-8 max-w-md w-full">
+        <img
+          src={bannerUrl}
+          alt={`Banner del evento ${evento}`}
+          className="rounded-xl mb-6 max-h-60 object-cover w-full"
+        />
+
         <h1 className="text-2xl font-bold mb-4 text-center">
           Descarga tu certificado
         </h1>
