@@ -26,6 +26,12 @@ function GodocuApi() {
     }
   };
 
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+    const date = new Date(dateString);
+    return date.toLocaleDateString('es-ES', options);
+  }
+
   useEffect(() => {
     fetchMessages();
   }, []);
@@ -51,7 +57,7 @@ function GodocuApi() {
   return (
     <>
       <div className='contenedor-ADM'>
-        
+
         <div className="acciones-superiores">
           <button onClick={() => navigate('/GodocuEditor')}>
              Crear
@@ -88,8 +94,14 @@ function GodocuApi() {
                     {datos.url}
                   </a>
                 </td>
-                <td>{datos.created}</td>
-                <td>**Faltan los datos**</td>
+                <td>
+                    {formatDate(datos.createdAt)}
+                </td>
+                <td>
+                  {datos.createdByData && datos.createdByData.success && datos.createdByData.data
+                      ? `${datos.createdByData.data.firstName} ${datos.createdByData.data.lastName}`
+                      : 'No disponible'}
+                </td>
               </tr>
             ))}
           </tbody>
