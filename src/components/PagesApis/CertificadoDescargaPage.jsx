@@ -19,9 +19,10 @@ export default function CertificadoDescargaPage() {
       return;
     }
 
-    const url = `http://localhost:3000/api/v1/certificados/${encodeURIComponent(evento)}?email=${encodeURIComponent(email)}`;
+    const url = `http://localhost:3000/api/v1/documents/${evento}`;
 
     try {
+      console.log(url);
       const response = await fetch(url);
       if (!response.ok) throw new Error("Certificado no encontrado");
       setCertUrl(url);
