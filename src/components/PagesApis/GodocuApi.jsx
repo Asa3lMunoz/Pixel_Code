@@ -8,6 +8,8 @@ function GodocuApi() {
   const [datos, setDatos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [idEvento,setId] = useState("");
+  
 
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -101,6 +103,11 @@ function GodocuApi() {
               <td>{document.name}</td>
               <td>{document.category}</td>
               <td>{document.category}</td>
+              
+          
+
+
+
               <td>
                 <a href={document.url} target="_blank" rel="noopener noreferrer">
                   {document.url}
