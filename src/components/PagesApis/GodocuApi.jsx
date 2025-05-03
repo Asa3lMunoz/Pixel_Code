@@ -8,71 +8,58 @@ function GodocuApi() {
   const [datos, setDatos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [idEvento,setId] = useState("");
-  
+  const [selectedRows, setSelectedRows] = useState([]);
+  const [expandedRow, setExpandedRow] = useState(null); // Fila cuyo detalle está abierto
 
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  const [selectedRows, setSelectedRows] = useState([]);
 
   const fetchMessages = async () => {
     try {
       const response = await axios.get('http://localhost:3000/api/v1/documents');
-      if (response.data && response.data.success) {
-        setDatos(response.data.data);
+      if (response.data?.success) {
+        const sortedData = response.data.data.sort((a, b) => {
+          return new Date(b.createdAt) - new Date(a.createdAt); // Descendente
+        });
+        setDatos(sortedData);
       }
-    } catch (err) {
+    } catch {
       setError('Error al obtener los datos');
     } finally {
       setLoading(false);
     }
   };
 
-  const deleteDocuments = async () => {
-    for (const id of selectedRows) {
-      try {
-        await axios.delete(`http://localhost:3000/api/v1/documents/${id}`);
-      } catch (error) {
-        console.error(`Error al eliminar documento con id ${id}:`, error);
-      }
-    }
-    setSelectedRows([]);
-    fetchMessages(); // Actualiza la tabla
-  };
+  useEffect(() => { fetchMessages(); }, []);
 
-  const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-    const date = new Date(dateString);
-    return date.toLocaleDateString('es-ES', options);
-  };
-
-  useEffect(() => {
-    fetchMessages();
-  }, []);
-
-  const indexOfLastRow = currentPage * rowsPerPage;
-  const indexOfFirstRow = indexOfLastRow - rowsPerPage;
-  const currentRows = datos.slice(indexOfFirstRow, indexOfLastRow);
-  const totalPages = Math.ceil(datos.length / rowsPerPage);
+  const formatDate = (d) =>
+    new Date(d).toLocaleDateString('es-ES', { year: 'numeric', month: '2-digit', day: '2-digit' });
 
   const handleCheckboxChange = (id) => {
-    setSelectedRows((prevSelected) =>
-      prevSelected.includes(id)
-        ? prevSelected.filter((selectedId) => selectedId !== id)
-        : [...prevSelected, id]
+    setSelectedRows(s =>
+      s.includes(id) ? s.filter(x => x !== id) : [...s, id]
     );
   };
 
+  const toggleDetails = (id) => {
+    setExpandedRow(expandedRow === id ? null : id);
+  };
+
+  // Paginación
+  const last = currentPage * rowsPerPage;
+  const first = last - rowsPerPage;
+  const currentRows = datos.slice(first, last);
+  const totalPages = Math.ceil(datos.length / rowsPerPage);
+
   if (loading) return <div>Cargando...</div>;
-  if (error) return <div>{error}</div>;
+  if (error)   return <div>{error}</div>;
 
   return (
     <div className="contenedor-ADM">
       <div className="acciones-superiores">
         <button onClick={() => navigate('/GodocuEditor')}>Crear</button>
-
         {selectedRows.length > 0 && (
-          <button onClick={deleteDocuments} style={{ marginLeft: '1rem', backgroundColor: 'red', color: 'white' }}>
+          <button style={{ marginLeft: '1rem', backgroundColor: 'red', color: 'white' }}>
             Eliminar
           </button>
         )}
@@ -88,38 +75,72 @@ function GodocuApi() {
             <th>Link Descarga</th>
             <th>Fecha Creación</th>
             <th>Creado por</th>
+            <th>Detalles</th>
           </tr>
         </thead>
         <tbody>
-          {currentRows.map((document) => (
-            <tr key={document.id}>
-              <td>
-                <input
-                  type="checkbox"
-                  checked={selectedRows.includes(document.id)}
-                  onChange={() => handleCheckboxChange(document.id)}
-                />
-              </td>
-              <td>{document.name}</td>
-              <td>{document.category}</td>
-              <td>{document.category}</td>
-              
-          
+          {currentRows.map(doc => (
+            <React.Fragment key={doc.id}>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    checked={selectedRows.includes(doc.id)}
+                    onChange={() => handleCheckboxChange(doc.id)}
+                  />
+                </td>
+                <td>{doc.name}</td>
+                <td>{doc.category}</td>
+                <td>{doc.category}</td>
+                <td>
+                  <a href={doc.url} target="_blank" rel="noopener noreferrer">
+                    {doc.url}
+                  </a>
+                </td>
+                <td>{formatDate(doc.createdAt)}</td>
+                <td>
+                  {doc.createdByData?.success
+                    ? `${doc.createdByData.data.firstName} ${doc.createdByData.data.lastName}`
+                    : 'No disponible'}
+                </td>
+                <td>
+                  <button
+                    onClick={() => toggleDetails(doc.id)}
+                    className="btn-detalles"
+                  >
+                    {expandedRow === doc.id ? '▲' : '▼'} Detalles
+                  </button>
+                </td>
+              </tr>
 
-
-
-              <td>
-                <a href={document.url} target="_blank" rel="noopener noreferrer">
-                  {document.url}
-                </a>
-              </td>
-              <td>{formatDate(document.createdAt)}</td>
-              <td>
-                {document.createdByData?.success && document.createdByData.data
-                  ? `${document.createdByData.data.firstName} ${document.createdByData.data.lastName}`
-                  : 'No disponible'}
-              </td>
-            </tr>
+              {expandedRow === doc.id && (
+                <tr>
+                  <td colSpan="8">
+                    <div className="detalle-descargas">
+                      <h4>Detalle Descargas</h4>
+                      <div className="columnas-detalle">
+                        <div className="columna">
+                          <strong>General:</strong>
+                          <div>Destinatarios: {/* aquí tu dato */}</div>
+                          <div>Descargas únicas: -</div>
+                          <div>Porcentaje de descarga: -</div>
+                        </div>
+                        <div className="columna">
+                          <strong>Descargaron:</strong>
+                          <div>{/* aquí tu dato */}</div>
+                        </div>
+                        <div className="columna">
+                          <strong>Pendientes:</strong>
+                          <div>•</div>
+                          <div>•</div>
+                          <div>•</div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              )}
+            </React.Fragment>
           ))}
         </tbody>
       </table>
@@ -128,38 +149,28 @@ function GodocuApi() {
         <span>Filas por página:</span>
         <select
           value={rowsPerPage}
-          onChange={(e) => {
-            setRowsPerPage(parseInt(e.target.value));
-            setCurrentPage(1);
-          }}
+          onChange={e => { setRowsPerPage(+e.target.value); setCurrentPage(1); }}
         >
-          <option value={5}>5</option>
-          <option value={10}>10</option>
-          <option value={25}>25</option>
+          {[5,10,25].map(n => <option key={n} value={n}>{n}</option>)}
         </select>
 
         <span>
-          {indexOfFirstRow + 1}-{Math.min(indexOfLastRow, datos.length)} de {datos.length}
+          {first+1}-{Math.min(last, datos.length)} de {datos.length}
         </span>
 
-        <button onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
+        <button onClick={() => setCurrentPage(p => Math.max(p-1,1))} disabled={currentPage===1}>
           Anterior
         </button>
-
-        {[...Array(totalPages)].map((_, i) => (
+        {[...Array(totalPages)].map((_,i) => (
           <button
             key={i}
-            onClick={() => setCurrentPage(i + 1)}
-            className={currentPage === i + 1 ? 'active' : ''}
+            onClick={() => setCurrentPage(i+1)}
+            className={currentPage===i+1 ? 'active' : ''}
           >
-            {i + 1}
+            {i+1}
           </button>
         ))}
-
-        <button
-          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-          disabled={currentPage === totalPages}
-        >
+        <button onClick={() => setCurrentPage(p => Math.min(p+1,totalPages))} disabled={currentPage===totalPages}>
           Siguiente
         </button>
       </div>

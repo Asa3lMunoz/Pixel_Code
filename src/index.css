@@ -1449,7 +1449,7 @@ textarea {
 
 
 .contenedor-ADM {
-  padding: 150px;
+  padding: 120px;
   overflow-x: auto;
   max-width: 1310px;
   margin:  auto;
@@ -1780,3 +1780,38 @@ textarea {
     font-size: 0.8rem;
   }
 }
+
+/********************************************************************/
+/********************************************************************/
+/******************PRUEBAS PARA DETALLES DE PAGE AAA*****************/
+/********************************************************************/
+
+.btn-detalles {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #000000;
+}
+
+.detalle-descargas {
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+}
+
+.columnas-detalle {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.columna {
+  flex: 1;
+  padding: 0 1rem;
+}
+
+.columna strong {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
