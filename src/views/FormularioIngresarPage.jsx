@@ -34,7 +34,8 @@ function FormularioIngresarPage() {
                 SetPass("");
                 const datosApi = await respAPi.json();
 
-                if (datosApi.success == true) {
+                if (datosApi.success === true) {
+
                     const datosU = datosApi.user;
                     const rolesU = datosApi.user.roles;
                     let assignedRole = "Cliente"; // Rol por defecto
@@ -58,6 +59,7 @@ function FormularioIngresarPage() {
                         nombre: datosU.firstName,
                         apellido: datosU.lastName,
                         rol: assignedRole,
+                        uid: datosApi.user.uid
                     }));
 
                     navigate('/');

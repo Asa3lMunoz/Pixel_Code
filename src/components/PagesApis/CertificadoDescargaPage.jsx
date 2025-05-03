@@ -25,9 +25,8 @@ export default function CertificadoDescargaPage() {
                 }
                 const respuesta = await response.json();
                 const data = respuesta.data.docRef;
-
                 setInitialData(data);
-                setbanner(data.bannerUrl);
+                setbanner(data.bannerImg);
                 setNombreE(data.description);
 
                 if (data.rows && Array.isArray(data.rows)) {
