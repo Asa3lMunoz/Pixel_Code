@@ -9,18 +9,37 @@ function GodocuApi() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedRows, setSelectedRows] = useState([]);
-  const [expandedRow, setExpandedRow] = useState(null); // Fila cuyo detalle está abierto
+  const [expandedRow, setExpandedRow] = useState(null);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
+  // 1) Función para borrar los documentos seleccionados
+  const deleteDocuments = async () => {
+    try {
+      // por cada id seleccionado, hacemos DELETE
+      await Promise.all(
+        selectedRows.map(id =>
+          axios.delete(`http://localhost:3000/api/v1/documents/${id}`)
+        )
+      );
+      // limpiamos selección
+      setSelectedRows([]);
+      // recargamos datos
+      fetchMessages();
+    } catch (err) {
+      console.error('Error al eliminar documentos:', err);
+    }
+  };
+
   const fetchMessages = async () => {
+    setLoading(true);
     try {
       const response = await axios.get('http://localhost:3000/api/v1/documents');
       if (response.data?.success) {
-        const sortedData = response.data.data.sort((a, b) => {
-          return new Date(b.createdAt) - new Date(a.createdAt); // Descendente
-        });
+        const sortedData = response.data.data.sort((a, b) =>
+          new Date(b.createdAt) - new Date(a.createdAt)
+        );
         setDatos(sortedData);
       }
     } catch {
@@ -32,20 +51,20 @@ function GodocuApi() {
 
   useEffect(() => { fetchMessages(); }, []);
 
-  const formatDate = (d) =>
+  const formatDate = d =>
     new Date(d).toLocaleDateString('es-ES', { year: 'numeric', month: '2-digit', day: '2-digit' });
 
-  const handleCheckboxChange = (id) => {
-    setSelectedRows(s =>
-      s.includes(id) ? s.filter(x => x !== id) : [...s, id]
+  const handleCheckboxChange = id => {
+    setSelectedRows(prev =>
+      prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]
     );
   };
 
-  const toggleDetails = (id) => {
+  const toggleDetails = id => {
     setExpandedRow(expandedRow === id ? null : id);
   };
 
-  // Paginación
+  // paginación
   const last = currentPage * rowsPerPage;
   const first = last - rowsPerPage;
   const currentRows = datos.slice(first, last);
@@ -58,9 +77,14 @@ function GodocuApi() {
     <div className="contenedor-ADM">
       <div className="acciones-superiores">
         <button onClick={() => navigate('/GodocuEditor')}>Crear</button>
+
+        {/* 2) Conectamos deleteDocuments aquí */}
         {selectedRows.length > 0 && (
-          <button style={{ marginLeft: '1rem', backgroundColor: 'red', color: 'white' }}>
-            Eliminar
+          <button
+            onClick={deleteDocuments}
+            style={{ marginLeft: '1rem', backgroundColor: 'red', color: 'white' }}
+          >
+            Eliminar ({selectedRows.length})
           </button>
         )}
       </div>
@@ -104,10 +128,7 @@ function GodocuApi() {
                     : 'No disponible'}
                 </td>
                 <td>
-                  <button
-                    onClick={() => toggleDetails(doc.id)}
-                    className="btn-detalles"
-                  >
+                  <button className="btn-detalles" onClick={() => toggleDetails(doc.id)}>
                     {expandedRow === doc.id ? '▲' : '▼'} Detalles
                   </button>
                 </td>
@@ -121,13 +142,13 @@ function GodocuApi() {
                       <div className="columnas-detalle">
                         <div className="columna">
                           <strong>General:</strong>
-                          <div>Destinatarios: {/* aquí tu dato */}</div>
+                          <div>Destinatarios: {/* tu dato aquí */}</div>
                           <div>Descargas únicas: -</div>
                           <div>Porcentaje de descarga: -</div>
                         </div>
                         <div className="columna">
                           <strong>Descargaron:</strong>
-                          <div>{/* aquí tu dato */}</div>
+                          <div>{/* tu dato aquí */}</div>
                         </div>
                         <div className="columna">
                           <strong>Pendientes:</strong>
