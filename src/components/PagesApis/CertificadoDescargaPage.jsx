@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-
-
+import {useState, useEffect} from "react";
+import {useParams} from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function CertificadoDescargaPage() {
-    const { evento } = useParams();
+    const {evento} = useParams();
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");
     const [certUrl, setCertUrl] = useState("");
@@ -26,7 +25,7 @@ export default function CertificadoDescargaPage() {
                 const respuesta = await response.json();
                 const data = respuesta.data.docRef;
                 setInitialData(data);
-                setbanner(data.bannerImg);
+                setbanner(data.bannerUrl);
                 setNombreE(data.description);
 
                 if (data.rows && Array.isArray(data.rows)) {
@@ -62,21 +61,55 @@ export default function CertificadoDescargaPage() {
             setMensajeEncontrado("Correo electrónico encontrado. Puede continuar.");
         }
 
-        const url = `http://localhost:3000/api/v1/documents/${evento}`;
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error("Certificado no encontrado");
-            }
-            const data = await response.json();
-            setCertUrl(data.url);
-            setError("");
-        } catch (err) {
-            console.error("Error al obtener el certificado:", err);
-            setCertUrl("");
-            setError("No se encontró ningún certificado para este email.");
+        // Llamada a la API para obtener el certificado con esta url: http://localhost:3000/api/v1/documents/get-certificado con un body que tiene el id del evento y el email
+        const body = {
+            idEvento: evento,
+            email: email,
         }
-    };
+
+        const url = `http://localhost:3000/api/v1/documents/get-certificado`;
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(body),
+            });
+
+            const data = await response.json();
+            if (data.success) {
+                // base64 a blob y que se descargue el archivo
+                const base64Data = data.data;
+                const byteCharacters = atob(base64Data);
+                const byteNumbers = new Array(byteCharacters.length);
+                for (let i = 0; i < byteCharacters.length; i++) {
+                    byteNumbers[i] = byteCharacters.charCodeAt(i);
+                }
+                const byteArray = new Uint8Array(byteNumbers);
+                const blob = new Blob([byteArray], {type: "application/pdf"});
+                const url = window.URL.createObjectURL(blob);
+
+                window.open(url, "_blank");
+
+            } else {
+                await Swal.fire({
+                    icon: "error",
+                    title: data.error,
+                    text: data.details,
+                    confirmButtonText: "Aceptar",
+                })
+            }
+        } catch (err) {
+            await Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "No se encontró el certificado. Por favor verifica el correo electrónico.",
+                footer: err.message,
+                confirmButtonText: "Aceptar",
+            })
+        }
+    }
 
     const handleCopy = async () => {
         if (!certUrl) return;
@@ -91,60 +124,60 @@ export default function CertificadoDescargaPage() {
 
     return (
         <>
-        <div className="cert-page">
-        <div className="cert-container">
-            <img src={banner} alt={`Banner del evento ${evento}`} className="cert-banner" />
+            <div className="cert-page">
+                <div className="cert-container">
+                    <img src={banner} alt={`Banner del evento ${evento}`} className="cert-banner"/>
 
-            <h1 className="cert-title">Descargue su certificado</h1>
-            <p className="cert-subtitle">
-                Ingresando con el email que se registró para el evento: <strong>{NombreEvento}</strong>
-            </p>
+                    <h1 className="cert-title">Descargue su certificado</h1>
+                    <p className="cert-subtitle">
+                        Ingresando con el email que se registró para el evento: <strong>{NombreEvento}</strong>
+                    </p>
 
-            <form onSubmit={handleSubmit}>
-                <label className="cert-label">* Email:</label>
-                <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="cert-input"
-                    placeholder="correo@ejemplo.com"
-                    required
-                />
-                <button type="submit" className="cert-button">Preparar Documentos</button>
-            </form>
+                    <form onSubmit={handleSubmit}>
+                        <label className="cert-label">* Email:</label>
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="cert-input"
+                            placeholder="correo@ejemplo.com"
+                            required
+                        />
+                        <button type="submit" className="cert-button">Preparar Documentos</button>
+                    </form>
 
-            {error && <p className="cert-msg cert-error">{error}</p>}
-            {mensajeEncontrado && <p className="cert-msg cert-success">{mensajeEncontrado}</p>}
+                    {error && <p className="cert-msg cert-error">{error}</p>}
+                    {mensajeEncontrado && <p className="cert-msg cert-success">{mensajeEncontrado}</p>}
 
-            {certUrl && (
-                <div style={{ marginTop: "1.5rem" }}>
-                    <a href={certUrl} download className="cert-button" style={{ backgroundColor: "#2e7d32" }}>
-                        Descargar certificado
-                    </a>
-                    <div style={{ marginTop: "0.5rem" }}>
-                        <button
-                            onClick={handleCopy}
-                            className="cert-msg"
-                            style={{
-                                color: "#174fa6",
-                                textDecoration: "underline",
-                                background: "none",
-                                border: "none",
-                                cursor: "pointer",
-                            }}
-                        >
-                            {copied ? "¡Enlace copiado!" : "Copiar enlace para compartir"}
-                        </button>
+                    {certUrl && (
+                        <div style={{marginTop: "1.5rem"}}>
+                            <a href={certUrl} download className="cert-button" style={{backgroundColor: "#2e7d32"}}>
+                                Descargar certificado
+                            </a>
+                            <div style={{marginTop: "0.5rem"}}>
+                                <button
+                                    onClick={handleCopy}
+                                    className="cert-msg"
+                                    style={{
+                                        color: "#174fa6",
+                                        textDecoration: "underline",
+                                        background: "none",
+                                        border: "none",
+                                        cursor: "pointer",
+                                    }}
+                                >
+                                    {copied ? "¡Enlace copiado!" : "Copiar enlace para compartir"}
+                                </button>
+                            </div>
+                        </div>
+                    )}
+
+                    <div className="cert-footer">
+                        &lt;PixelCode&gt;<br/>
+                        Diseño, publicidad y desarrollo de soluciones tecnológicas
                     </div>
                 </div>
-            )}
-
-            <div className="cert-footer">
-                &lt;PixelCode&gt;<br />
-                Diseño, publicidad y desarrollo de soluciones tecnológicas
             </div>
-        </div>
-        </div>
         </>
     );
 }
