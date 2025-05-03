@@ -90,7 +90,12 @@ export default function CertificadoDescargaPage() {
                 const blob = new Blob([byteArray], {type: "application/pdf"});
                 const url = window.URL.createObjectURL(blob);
 
-                window.open(url, "_blank");
+                // window.open(url, "_blank");
+                const link = document.createElement("a");
+                link.href = url;
+                link.download = `certificado-${evento}-${email}.pdf`;
+                link.click();
+
 
             } else {
                 await Swal.fire({
