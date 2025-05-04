@@ -8,6 +8,11 @@ const GodocuEditor = () => {
     const [bannerPreview, setBannerPreview] = useState(null);
     const [dataFile, setDataFile] = useState(null);
     const [nombreEvento, setNombreEvento] = useState("");
+    const [descripcionEvento, setDescripcionEvento] = useState("");
+    const [categoriaEvento, setCategoriaEvento] = useState("");
+    const [linkDescargaEvento, setLinkDescargaEvento] = useState("");
+    const [headerEvento, setHeaderEvento] = useState("");
+    const [documentFormat, setDocumentFormat] = useState("horizontal");
     const [downloadUrl, setDownloadUrl] = useState("");
     const [currentDesign, setCurrentDesign] = useState(null);
     const [html, setHtml] = useState("");
@@ -106,14 +111,14 @@ const GodocuEditor = () => {
         const userData = JSON.parse(localStorage.getItem("user"));
 
         formData.append("name", nombreEvento);
-        formData.append("description", "description");
-        formData.append("category", "category");
-        formData.append("downloadLink", "link");
-        formData.append("header", "Descargue su cartón");
-        formData.append("documentFormat", "horizontal");
+        formData.append("description", descripcionEvento);
+        formData.append("category", categoriaEvento);
+        formData.append("downloadLink", linkDescargaEvento);
+        formData.append("header", headerEvento);
+        formData.append("documentFormat", documentFormat);
         formData.append("bannerImg", bannerImage);
         formData.append("xlsxFile", dataFile);
-        formData.append("clientId", "balbalbablabla");
+        formData.append("clientId", "_");
         formData.append("createdBy", userData ? userData.uid : "");
         formData.append("design", JSON.stringify(currentDesign));
         formData.append("showContactInfo", true);
@@ -231,33 +236,64 @@ const GodocuEditor = () => {
 
                         <div className="full-width">
                             <label>Descripción</label>
-                            <textarea placeholder="Descripción 1"></textarea>
+                            <textarea
+                                placeholder="Descripción"
+                                value={descripcionEvento}
+                                onChange={(e) => setDescripcionEvento(e.target.value)}
+                            ></textarea>
                         </div>
 
                         <div>
                             <label>Evento o categoría</label>
-                            <input type="text" placeholder="categ 1"/>
+                            <input
+                                type="text"
+                                placeholder="Categoría"
+                                value={categoriaEvento}
+                                onChange={(e) => setCategoriaEvento(e.target.value)}
+                            />
                         </div>
 
                         <div>
                             <label>Link descarga</label>
-                            <input type="text" placeholder="link 1"/>
+                            <input
+                                type="text"
+                                placeholder="Link"
+                                value={linkDescargaEvento}
+                                onChange={(e) => setLinkDescargaEvento(e.target.value)}
+                            />
                         </div>
 
                         <div className="full-width">
                             <label>Encabezado página de descarga</label>
-                            <input type="text" placeholder="Descargue su cartón"/>
+                            <input
+                                type="text"
+                                placeholder="Descargue su cartón"
+                                value={headerEvento}
+                                onChange={(e) => setHeaderEvento(e.target.value)}
+                            />
                         </div>
 
                         <div className="full-width">
                             <label>Formato del documento</label>
                             <div className="radio-group">
                                 <label>
-                                    <input type="radio" name="format"/>
+                                    <input
+                                        type="radio"
+                                        name="format"
+                                        value="vertical"
+                                        checked={documentFormat === "vertical"}
+                                        onChange={(e) => setDocumentFormat(e.target.value)}
+                                    />
                                     Vertical / Retrato
                                 </label>
                                 <label>
-                                    <input type="radio" name="format" defaultChecked/>
+                                    <input
+                                        type="radio"
+                                        name="format"
+                                        value="horizontal"
+                                        checked={documentFormat === "horizontal"}
+                                        onChange={(e) => setDocumentFormat(e.target.value)}
+                                    />
                                     Horizontal / Paisaje
                                 </label>
                             </div>
