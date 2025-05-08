@@ -11,8 +11,11 @@ import CertificadoDescargaPage from './components/PagesApis/CertificadoDescargaP
 
 
 
+
 //PAGES PARA ADMINISTRACION
 import GodocuEditor from './components/PagesApis/GodocuEditor'
+import GodocuEditorEdit from './components/PagesApis/GodocuEditorEdit';
+
 import GodocuPage from './components/PagesApis/GodocuPage'
 import ContactoPage from './components/PagesApis/ContactoPage'
 import Clientes from './components/PagesApis/Clientes'
@@ -40,10 +43,20 @@ export default function AppRouter() {
           <ProtectedRoute allowedRoles={['superAdmin']}>
             <GodocuEditor />
           </ProtectedRoute>} />
+
+        <Route path='/GodocuEditorEdit/:eventId' element={
+          <ProtectedRoute allowedRoles={['superAdmin']}>
+            <GodocuEditorEdit />
+          </ProtectedRoute>} />
+
         <Route path='/GodocuPage' element={
           <ProtectedRoute allowedRoles={['superAdmin']}>
             <GodocuPage />
           </ProtectedRoute>} />
+
+
+
+
         <Route path='/Contacto' element={
           <ProtectedRoute allowedRoles={['superAdmin']}>
             <ContactoPage />
@@ -61,8 +74,8 @@ export default function AppRouter() {
             <UsuariosPage />
           </ProtectedRoute>} />
 
-          
-          <Route path="/certificado/:evento" element={<CertificadoDescargaPage/>} />
+
+        <Route path="/certificado/:evento" element={<CertificadoDescargaPage />} />
 
 
         <Route path='/UserProfile' element={

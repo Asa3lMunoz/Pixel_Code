@@ -4,7 +4,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 function ProtectedRoute({ allowedRoles, children }) {
     const storedUser = localStorage.getItem('user');
 
-    console.log(storedUser)
+    /*console.log(storedUser)*/
 
     if (!storedUser) {
         return <Navigate to="/Login" replace />;
