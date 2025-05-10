@@ -128,13 +128,9 @@ export default function GodocuApi() {
                   <td>{doc.name}</td>
                   <td>{doc.description || '-'}</td>
                   <td>{doc.category}</td>
-                  <td onClick={e => e.stopPropagation()}>
-                    <a
-                      href={doc.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {doc.url}
+                  <td>
+                    <a href={`certificado/${doc.id}`} target="_blank" rel="noopener noreferrer">
+                        Acceder a link de Descarga
                     </a>
                   </td>
                   <td>{formatDate(doc.createdAt)}</td>
