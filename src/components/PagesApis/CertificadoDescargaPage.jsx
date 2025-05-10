@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 
 export default function CertificadoDescargaPage() {
     const {evento} = useParams();
+    const [isLoading, setIsLoading] = useState(false);
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");
     const [certUrl, setCertUrl] = useState("");
@@ -45,6 +46,7 @@ export default function CertificadoDescargaPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         setCopied(false);
         setMensajeEncontrado("");
 
@@ -114,6 +116,7 @@ export default function CertificadoDescargaPage() {
                 confirmButtonText: "Aceptar",
             })
         }
+        setIsLoading(false);
     }
 
     const handleCopy = async () => {
@@ -148,7 +151,14 @@ export default function CertificadoDescargaPage() {
                             placeholder="correo@ejemplo.com"
                             required
                         />
-                        <button type="submit" className="cert-button">Preparar Documentos</button>
+                        <button
+                            type="submit"
+                            className="cert-button"
+                            disabled={isLoading}
+                            style={{ opacity: isLoading ? 0.5 : 1, pointerEvents: isLoading ? 'none' : 'auto' }}
+                        >
+                            {isLoading ? 'Generando certificado...' : 'Preparar Documentos'}
+                        </button>
                     </form>
 
                     {error && <p className="cert-msg cert-error">{error}</p>}

@@ -39,12 +39,12 @@ const GodocuEditorEdit = () => {
             .then(res => res.json())
             .then(({ data }) => {
                 const doc = data.docRef;
-
+                console.log(doc)
                 setNombreEvento(doc.name);
                 setDescripcion(doc.description || "");
-                setCategoria(doc.linkSlug || "");
-                setDownloadUrl(doc.url || "");
-                setEncabezado(doc.downloadHeader || "");
+                setCategoria(doc.category || "");
+                setDownloadUrl(doc.downloadLink || doc.linkSlug || "");
+                setEncabezado(doc.header || doc.downloadHeader || "");
                 setFormato(doc.pageFormat === "landscape" ? "horizontal" : "vertical");
                 setMostrarContacto(doc.showContactInfo);
                 setCurrentDesign(doc.design);
@@ -112,11 +112,12 @@ const GodocuEditorEdit = () => {
             formData.append("template", data.html);
             formData.append("design", JSON.stringify(data.design));
             formData.append("createdBy", userData ? userData.uid : "");
-            if (bannerImage) formData.append("bannerImg", bannerImage);
-            if (dataFile) formData.append("xlsxFile", dataFile);
+            formData.append("clientId", "_");
+            formData.append("bannerImg", bannerPreview);
+            if(dataFile) formData.append("xlsxFile", dataFile);
 
             try {
-                const response = await fetch(`http://localhost:3000/api/v1/documents/${eventId}`, {
+                const response = await fetch(`http://localhost:3000/api/v1/documents/`, {
                     method: "POST", // O "PUT" si tu API lo requiere
                     body: formData,
                 });
