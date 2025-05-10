@@ -22,43 +22,54 @@ const GodocuEditorEdit = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        const scriptId = "unlayer-script";
-        if (!document.getElementById(scriptId)) {
-            const script = document.createElement("script");
-            script.id = scriptId;
-            script.src = "https://editor.unlayer.com/embed.js";
-            script.async = true;
-            script.onload = () => {
-                if (window.unlayer) initEditor();
-            };
-            document.body.appendChild(script);
-        } else {
-            initEditor();
-        }
-        fetch(`http://localhost:3000/api/v1/documents/${eventId}`)
-            .then(res => res.json())
-            .then(({ data }) => {
-                const doc = data.docRef;
-                console.log(doc)
-                setNombreEvento(doc.name);
-                setDescripcion(doc.description || "");
-                setCategoria(doc.category || "");
-                setDownloadUrl(doc.downloadLink || doc.linkSlug || "");
-                setEncabezado(doc.header || doc.downloadHeader || "");
-                setFormato(doc.pageFormat === "landscape" ? "horizontal" : "vertical");
-                setMostrarContacto(doc.showContactInfo);
-                setCurrentDesign(doc.design);
-                setHtml(doc.template || ""); // En caso de que tengas un campo template por separado
-                setBannerPreview(doc.bannerUrl);
+    const scriptId = "unlayer-script";
 
-                if (window.unlayer && doc.design) {
-                    window.unlayer.loadDesign(JSON.parse(doc.design));
-                }
-            })
-            .catch(err => console.error("Error al cargar datos del evento:", err));
+    const initialize = () => {
+        // Asegúrate de limpiar el contenedor antes
+        const container = document.getElementById("editor-container");
+        if (container) {
+            container.innerHTML = ""; // Limpia el editor anterior
+        }
+        if (window.unlayer) initEditor();
+    };
+
+    if (!document.getElementById(scriptId)) {
+        const script = document.createElement("script");
+        script.id = scriptId;
+        script.src = "https://editor.unlayer.com/embed.js";
+        script.async = true;
+        script.onload = initialize;
+        document.body.appendChild(script);
+    } else {
+        initialize();
+    }
+
+    // Carga de datos
+    fetch(`http://localhost:3000/api/v1/documents/${eventId}`)
+        .then(res => res.json())
+        .then(({ data }) => {
+            const doc = data.docRef;
+            setNombreEvento(doc.name);
+            setDescripcion(doc.description || "");
+            setCategoria(doc.category || "");
+            setDownloadUrl(doc.downloadLink || doc.linkSlug || "");
+            setEncabezado(doc.header || doc.downloadHeader || "");
+            setFormato(doc.pageFormat === "landscape" ? "horizontal" : "vertical");
+            setMostrarContacto(doc.showContactInfo);
+            setCurrentDesign(doc.design);
+            setHtml(doc.template || "");
+            setBannerPreview(doc.bannerUrl);
+
+            if (window.unlayer && doc.design) {
+                window.unlayer.loadDesign(JSON.parse(doc.design));
+            }
+        })
+        .catch(err => console.error("Error al cargar datos del evento:", err));
     }, [eventId]);
 
     const initEditor = () => {
+        if (!window.unlayer) return;
+
         window.unlayer.init({
             id: "editor-container",
             displayMode: "email",
