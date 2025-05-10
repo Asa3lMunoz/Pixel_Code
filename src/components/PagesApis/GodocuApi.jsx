@@ -13,16 +13,16 @@ export default function GodocuApi() {
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
-  // Borrar seleccionados
   const deleteDocuments = async () => {
     await Promise.all(
-      selectedRows.map(id => axios.delete(`http://localhost:3000/api/v1/documents/${id}`))
+      selectedRows.map(id =>
+        axios.delete(`http://localhost:3000/api/v1/documents/${id}`)
+      )
     );
     setSelectedRows([]);
     fetchMessages();
   };
 
-  // Cargar documentos
   const fetchMessages = async () => {
     setLoading(true);
     try {
@@ -38,19 +38,26 @@ export default function GodocuApi() {
     }
   };
 
-  useEffect(() => { fetchMessages(); }, []);
+  useEffect(() => {
+    fetchMessages();
+  }, []);
 
   const formatDate = d =>
-    new Date(d).toLocaleDateString('es-ES', { year: 'numeric', month: '2-digit', day: '2-digit' });
+    new Date(d).toLocaleDateString('es-ES', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    });
 
-  const toggleDetails = id => setExpandedRow(expandedRow === id ? null : id);
+  const toggleDetails = id =>
+    setExpandedRow(expandedRow === id ? null : id);
 
   const start = (currentPage - 1) * rowsPerPage;
   const pageData = datos.slice(start, start + rowsPerPage);
   const totalPages = Math.ceil(datos.length / rowsPerPage);
 
   if (loading) return <div>Cargando...</div>;
-  if (error)   return <div>{error}</div>;
+  if (error) return <div>{error}</div>;
 
   return (
     <div className="contenedor-ADM">
@@ -69,9 +76,14 @@ export default function GodocuApi() {
       <table className="contenedor-ADM-2">
         <thead>
           <tr>
-            <th>Seleccionar</th><th>Nombre</th><th>Descripción</th>
-            <th>Item Agrupación</th><th>Link Descarga</th><th>Fecha Creación</th>
-            <th>Creado por</th><th>Detalles</th>
+            <th>Seleccionar</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Item Agrupación</th>
+            <th>Link Descarga</th>
+            <th>Fecha Creación</th>
+            <th>Creado por</th>
+            <th>Detalles</th>
           </tr>
         </thead>
         <tbody>
@@ -82,18 +94,33 @@ export default function GodocuApi() {
             const pendientes = Array.isArray(doc.rows)
               ? doc.rows.filter(r => !descargados.includes(r.email))
               : [];
-            const porcentaje = total ? Math.round((descargados.length / total) * 100) : 0;
+            const porcentaje = total
+              ? Math.round((descargados.length / total) * 100)
+              : 0;
 
             return (
               <React.Fragment key={doc.id}>
-                <tr>
-                  <td>
+                <tr
+                  onClick={e => {
+                    if (
+                      e.target.tagName !== 'INPUT' &&
+                      e.target.tagName !== 'BUTTON' &&
+                      e.target.tagName !== 'A'
+                    ) {
+                      navigate(`/GodocuEditorEdit/${doc.id}`);
+                    }
+                  }}
+                  style={{ cursor: 'pointer' }}
+                >
+                  <td onClick={e => e.stopPropagation()}>
                     <input
                       type="checkbox"
                       checked={selectedRows.includes(doc.id)}
                       onChange={() =>
                         setSelectedRows(s =>
-                          s.includes(doc.id) ? s.filter(x => x !== doc.id) : [...s, doc.id]
+                          s.includes(doc.id)
+                            ? s.filter(x => x !== doc.id)
+                            : [...s, doc.id]
                         )
                       }
                     />
@@ -101,8 +128,12 @@ export default function GodocuApi() {
                   <td>{doc.name}</td>
                   <td>{doc.description || '-'}</td>
                   <td>{doc.category}</td>
-                  <td>
-                    <a href={doc.url} target="_blank" rel="noopener noreferrer">
+                  <td onClick={e => e.stopPropagation()}>
+                    <a
+                      href={doc.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       {doc.url}
                     </a>
                   </td>
@@ -112,8 +143,11 @@ export default function GodocuApi() {
                       ? `${doc.createdByData.data.firstName} ${doc.createdByData.data.lastName}`
                       : 'No disponible'}
                   </td>
-                  <td>
-                    <button className="btn-detalles" onClick={() => toggleDetails(doc.id)}>
+                  <td onClick={e => e.stopPropagation()}>
+                    <button
+                      className="btn-detalles"
+                      onClick={() => toggleDetails(doc.id)}
+                    >
                       {expandedRow === doc.id ? '▲' : '▼'} Detalles
                     </button>
                   </td>
@@ -133,17 +167,25 @@ export default function GodocuApi() {
                           </div>
                           <div className="columna">
                             <strong>Descargaron:</strong>
-                            {history.length
-                              ? history.map((h, i) => (
-                                  <div key={i}>✔ {h.email} ({h.downloads} veces)</div>
-                                ))
-                              : <div>No hay descargas</div>}
+                            {history.length ? (
+                              history.map((h, i) => (
+                                <div key={i}>
+                                  ✔ {h.email} ({h.downloads} veces)
+                                </div>
+                              ))
+                            ) : (
+                              <div>No hay descargas</div>
+                            )}
                           </div>
                           <div className="columna">
                             <strong>Pendientes:</strong>
-                            {pendientes.length
-                              ? pendientes.map((r, i) => <div key={i}>• {r.email}</div>)
-                              : <div>Todos descargaron</div>}
+                            {pendientes.length ? (
+                              pendientes.map((r, i) => (
+                                <div key={i}>• {r.email}</div>
+                              ))
+                            ) : (
+                              <div>Todos descargaron</div>
+                            )}
                           </div>
                         </div>
                       </div>
@@ -160,26 +202,36 @@ export default function GodocuApi() {
         <span>Filas por página:</span>
         <select
           value={rowsPerPage}
-          onChange={e => { setRowsPerPage(+e.target.value); setCurrentPage(1); }}
+          onChange={e => {
+            setRowsPerPage(+e.target.value);
+            setCurrentPage(1);
+          }}
         >
-          {[5,10,25].map(n => <option key={n} value={n}>{n}</option>)}
+          {[5, 10, 25].map(n => (
+            <option key={n} value={n}>
+              {n}
+            </option>
+          ))}
         </select>
         <span>
-          {start+1}-{Math.min(start + rowsPerPage, datos.length)} de {datos.length}
+          {start + 1}-{Math.min(start + rowsPerPage, datos.length)} de {datos.length}
         </span>
-        <button onClick={() => setCurrentPage(p => Math.max(p-1,1))} disabled={currentPage===1}>
+        <button onClick={() => setCurrentPage(p => Math.max(p - 1, 1))} disabled={currentPage === 1}>
           Anterior
         </button>
         {[...Array(totalPages)].map((_, i) => (
           <button
             key={i}
-            onClick={() => setCurrentPage(i+1)}
-            className={currentPage===i+1 ? 'active' : ''}
+            onClick={() => setCurrentPage(i + 1)}
+            className={currentPage === i + 1 ? 'active' : ''}
           >
-            {i+1}
+            {i + 1}
           </button>
         ))}
-        <button onClick={() => setCurrentPage(p => Math.min(p+1,totalPages))} disabled={currentPage===totalPages}>
+        <button
+          onClick={() => setCurrentPage(p => Math.min(p + 1, totalPages))}
+          disabled={currentPage === totalPages}
+        >
           Siguiente
         </button>
       </div>
