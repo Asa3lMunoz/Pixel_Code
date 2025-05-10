@@ -56,7 +56,7 @@ const GodocuEditorEdit = () => {
             setDownloadUrl(doc.downloadLink || doc.linkSlug || "");
             setEncabezado(doc.header || doc.downloadHeader || "");
             setFormato(doc.pageFormat || doc.documentFormat === "landscape" ? "horizontal" : "vertical");
-            setMostrarContacto(doc.showContactInfo);
+            setMostrarContacto(doc.showContactInfo === "true");
             setCurrentDesign(doc.design);
             setHtml(doc.template || "");
             setBannerPreview(doc.bannerUrl);
