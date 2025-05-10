@@ -49,12 +49,13 @@ const GodocuEditorEdit = () => {
         .then(res => res.json())
         .then(({ data }) => {
             const doc = data.docRef;
+
             setNombreEvento(doc.name);
             setDescripcion(doc.description || "");
             setCategoria(doc.category || "");
             setDownloadUrl(doc.downloadLink || doc.linkSlug || "");
             setEncabezado(doc.header || doc.downloadHeader || "");
-            setFormato(doc.pageFormat === "landscape" ? "horizontal" : "vertical");
+            setFormato(doc.pageFormat || doc.documentFormat === "landscape" ? "horizontal" : "vertical");
             setMostrarContacto(doc.showContactInfo);
             setCurrentDesign(doc.design);
             setHtml(doc.template || "");
@@ -124,7 +125,7 @@ const GodocuEditorEdit = () => {
             formData.append("design", JSON.stringify(data.design));
             formData.append("createdBy", userData ? userData.uid : "");
             formData.append("clientId", "_");
-            formData.append("bannerImg", bannerPreview);
+            formData.append("bannerImg", bannerImage);
             if(dataFile) formData.append("xlsxFile", dataFile);
 
             try {
@@ -141,6 +142,8 @@ const GodocuEditorEdit = () => {
                         title: "Evento actualizado",
                         text: "Los datos se han actualizado correctamente.",
                     });
+                    // redireccionar a la página de eventos
+                    window.location.href = "/Pixel_Code/Godocupage";
                 } else {
                     await Swal.fire({
                         icon: "error",
