@@ -125,7 +125,7 @@ const GodocuEditor = () => {
         formData.append("template", html);
 
         try {
-            const response = await fetch("http://localhost:3000/api/v1/documents", {
+            const response = await fetch("https://pixel-code-back-891804194195.southamerica-west1.run.app/api/v1/documents", {
                 method: "POST",
                 body: formData,
             });
@@ -164,7 +164,7 @@ const GodocuEditor = () => {
             setCurrentDesign(design);
 
             try {
-                const resJson = await fetch("http://localhost:3000/api/v1/editor/guardar-json", {
+                const resJson = await fetch("https://pixel-code-back-891804194195.southamerica-west1.run.app/api/v1/editor/guardar-json", {
                     method: "POST",
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify({
@@ -180,7 +180,7 @@ const GodocuEditor = () => {
                 reader.onload = async () => {
                     const excelBase64 = reader.result.split(",")[1];
 
-                    const resCert = await fetch("http://localhost:3000/api/v1/editor/generar-certificados", {
+                    const resCert = await fetch("https://pixel-code-back-891804194195.southamerica-west1.run.app/api/v1/editor/generar-certificados", {
                         method: "POST",
                         headers: {"Content-Type": "application/json"},
                         body: JSON.stringify({
@@ -348,7 +348,7 @@ const GodocuEditor = () => {
                         Para que aparezcan los datos a reemplazar, rodea el nombre de la columna entre
                         <br/>
                         Por ejemplo, si tu archivo de datos incluye las
-                        columnas <code>email</code> y <code>nombre</code>:
+                        columnas <code>"{"{{nombre}}"}"</code> y <code>"{"{{apellido}}"}"</code>:
                     </p>
                     <div
                         id="editor-container"

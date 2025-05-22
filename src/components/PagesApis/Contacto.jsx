@@ -12,7 +12,7 @@ function Contacto() {
 
   const fetchMessages = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/v1/contactRequests');
+      const response = await axios.get('https://pixel-code-back-891804194195.southamerica-west1.run.app/api/v1/contactRequests');
       if (response.data && response.data.success) {
         setDatos(response.data.data);
       }

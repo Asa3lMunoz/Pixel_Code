@@ -17,7 +17,7 @@ export default function CertificadoDescargaPage() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const url = `http://localhost:3000/api/v1/documents/${evento}`;
+            const url = `https://pixel-code-back-891804194195.southamerica-west1.run.app/api/v1/documents/${evento}`;
             try {
                 const response = await fetch(url);
                 if (!response.ok) {
@@ -63,13 +63,13 @@ export default function CertificadoDescargaPage() {
             setMensajeEncontrado("Correo electrónico encontrado. Puede continuar.");
         }
 
-        // Llamada a la API para obtener el certificado con esta url: http://localhost:3000/api/v1/documents/get-certificado con un body que tiene el id del evento y el email
+        // Llamada a la API para obtener el certificado con esta url: https://pixel-code-back-891804194195.southamerica-west1.run.app/api/v1/documents/get-certificado con un body que tiene el id del evento y el email
         const body = {
             idEvento: evento,
             email: email,
         }
 
-        const url = `http://localhost:3000/api/v1/documents/get-certificado`;
+        const url = `https://pixel-code-back-891804194195.southamerica-west1.run.app/api/v1/documents/get-certificado`;
         try {
             const response = await fetch(url, {
                 method: "POST",

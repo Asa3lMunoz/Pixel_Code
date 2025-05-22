@@ -45,7 +45,7 @@ const GodocuEditorEdit = () => {
     }
 
     // Carga de datos
-    fetch(`http://localhost:3000/api/v1/documents/${eventId}`)
+    fetch(`https://pixel-code-back-891804194195.southamerica-west1.run.app/api/v1/documents/${eventId}`)
         .then(res => res.json())
         .then(({ data }) => {
             const doc = data.docRef;
@@ -129,7 +129,7 @@ const GodocuEditorEdit = () => {
             if(dataFile) formData.append("xlsxFile", dataFile);
 
             try {
-                const response = await fetch(`http://localhost:3000/api/v1/documents/`, {
+                const response = await fetch(`https://pixel-code-back-891804194195.southamerica-west1.run.app/api/v1/documents/`, {
                     method: "POST", // O "PUT" si tu API lo requiere
                     body: formData,
                 });
@@ -143,7 +143,7 @@ const GodocuEditorEdit = () => {
                         text: "Los datos se han actualizado correctamente.",
                     });
                     // redireccionar a la página de eventos
-                    window.location.href = "/Pixel_Code/Godocupage";
+                    window.location.href = "/Godocupage";
                 } else {
                     await Swal.fire({
                         icon: "error",

@@ -16,7 +16,7 @@ export default function GodocuApi() {
   const deleteDocuments = async () => {
     await Promise.all(
       selectedRows.map(id =>
-        axios.delete(`http://localhost:3000/api/v1/documents/${id}`)
+        axios.delete(`https://pixel-code-back-891804194195.southamerica-west1.run.app/api/v1/documents/${id}`)
       )
     );
     setSelectedRows([]);
@@ -26,7 +26,7 @@ export default function GodocuApi() {
   const fetchMessages = async () => {
     setLoading(true);
     try {
-      const res = await axios.get('http://localhost:3000/api/v1/documents');
+      const res = await axios.get('https://pixel-code-back-891804194195.southamerica-west1.run.app/api/v1/documents');
       if (!res.data.success) throw new Error('API falló');
       setDatos(
         res.data.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))

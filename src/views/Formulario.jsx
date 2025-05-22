@@ -24,7 +24,7 @@ export default function Formulario() {
     }
 
     try {
-      const response = await fetch('http://localhost:3000/api/v1/contactRequests', {
+      const response = await fetch('https://pixel-code-back-891804194195.southamerica-west1.run.app/api/v1/contactRequests', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -130,7 +130,7 @@ export default function Formulario() {
 
             <div style={{ margin: "1rem 0", display: "flex", justifyContent: "center" }}>
               <ReCAPTCHA
-                sitekey="6LdnLw0rAAAAAI1WBcYjReBJq-wd7t0W69bAjQKG"
+                sitekey="6LfJt0UrAAAAADIqi6f5ZRs9PFnMSpQueYyUhFQK"
                 onChange={handleCaptchaChange}
               />
             </div>

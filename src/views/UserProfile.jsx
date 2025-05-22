@@ -26,7 +26,7 @@ function PerfilUsuario() {
 
   // Simulamos obtener los datos del usuario
   useEffect(() => {
-    axios.get("http://localhost:3000/api/v1/contactRequests") // Reemplaza con tu API real
+    axios.get("https://pixel-code-back-891804194195.southamerica-west1.run.app/api/v1/contactRequests") // Reemplaza con tu API real
       .then(response => setUsuario(response.data))
       .catch(error => console.error("Error cargando usuario:", error));
   }, []);

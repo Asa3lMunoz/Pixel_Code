@@ -25,7 +25,7 @@ import UsuariosPage from './components/PagesApis/UsuariosPage'
 export default function AppRouter() {
   return (
 
-    <BrowserRouter basename="/Pixel_Code">
+    <BrowserRouter>
       <Routes>
         <Route path='/' element={<IndexPage />} />
 
