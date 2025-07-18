@@ -19,27 +19,47 @@ const GodocuEditor = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        const scriptId = "unlayer-script";
-        if (!document.getElementById(scriptId)) {
-            const script = document.createElement("script");
-            script.id = scriptId;
-            script.src = "https://editor.unlayer.com/embed.js";
-            script.async = true;
+    const scriptId = "unlayer-script";
+    if (!document.getElementById(scriptId)) {
+        const script = document.createElement("script");
+        script.id = scriptId;
+        script.src = "https://editor.unlayer.com/embed.js";
+        script.async = true;
 
-            script.onload = () => {
-                if (window.unlayer) {
-                    unlayer.init({
-                        id: "editor-container",
-                        displayMode: "email",
-                        projectId: 1234,
-                    });
-                } else {
-                    console.error("No se pudo cargar Unlayer.");
-                }
-            };
+        script.onload = () => {
+            if (window.unlayer) {
+                unlayer.init({
+                    id: "editor-container",
+                    displayMode: "email",
+                    projectId: 1234,
 
-            document.body.appendChild(script);
-        }
+                    // 👇 Agregar aquí customFileUploader
+                    customFileUploader: function (file, done) {
+                        const storage = getStorage(app);
+                        const storageRef = ref(storage, `certificados/${Date.now()}_${file.name}`);
+                        const uploadTask = uploadBytesResumable(storageRef, file);
+
+                        uploadTask.on(
+                            'state_changed',
+                            null,
+                            (error) => {
+                                console.error('Error al subir:', error);
+                                done({ progress: 100, url: '' });
+                            },
+                            async () => {
+                                const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+                                done({ progress: 100, url: downloadURL }); // 👈 URL de alta calidad
+                            }
+                        );
+                    }
+                });
+            } else {
+                console.error("No se pudo cargar Unlayer.");
+            }
+        };
+
+        document.body.appendChild(script);
+    }
     }, []);
 
     const handleBannerChange = (e) => {
