@@ -122,10 +122,11 @@ const GodocuEditor = () => {
         //     return;
         // }
 
-        window.unlayer.exportHtml(async (data) => {
-            setCurrentDesign(data.design);
-            setHtml(data.html);
+        const exportedData = await new Promise((resolve) => {
+            window.unlayer.exportHtml((data) => resolve(data));
         });
+        setCurrentDesign(exportedData.design);
+        setHtml(exportedData.html);
 
         const formData = new FormData();
         const userData = JSON.parse(localStorage.getItem("user"));
@@ -140,12 +141,12 @@ const GodocuEditor = () => {
         formData.append("xlsxFile", dataFile);
         formData.append("clientId", "_");
         formData.append("createdBy", userData ? userData.uid : "");
-        formData.append("design", JSON.stringify(currentDesign));
+        formData.append("design", JSON.stringify(exportedData.design));
         formData.append("showContactInfo", true);
-        formData.append("template", html);
+        formData.append("template", exportedData.html);
 
         try {
-            const response = await fetch("https://pixel-code-back-891804194195.southamerica-west1.run.app/api/v1/documents", {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/documents`, {
                 method: "POST",
                 body: formData,
             });
@@ -184,7 +185,7 @@ const GodocuEditor = () => {
             setCurrentDesign(design);
 
             try {
-                const resJson = await fetch("https://pixel-code-back-891804194195.southamerica-west1.run.app/api/v1/editor/guardar-json", {
+                const resJson = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/editor/guardar-json`, {
                     method: "POST",
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify({
@@ -200,7 +201,7 @@ const GodocuEditor = () => {
                 reader.onload = async () => {
                     const excelBase64 = reader.result.split(",")[1];
 
-                    const resCert = await fetch("https://pixel-code-back-891804194195.southamerica-west1.run.app/api/v1/editor/generar-certificados", {
+                    const resCert = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/editor/generar-certificados`, {
                         method: "POST",
                         headers: {"Content-Type": "application/json"},
                         body: JSON.stringify({

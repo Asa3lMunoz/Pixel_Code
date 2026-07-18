@@ -12,12 +12,14 @@ export default function CertificadoDescargaPage() {
     const [banner, setbanner] = useState("");
     const [NombreEvento, setNombreE] = useState("");
     const [emailsUsuario, setEmailsUsuario] = useState([]);
+    const [foliosUsuario, setFoliosUsuario] = useState([]);
     const [initialData, setInitialData] = useState(null);
     const [mensajeEncontrado, setMensajeEncontrado] = useState("");
+    const [folio, setFolio] = useState("");
 
     useEffect(() => {
         const fetchData = async () => {
-            const url = `https://pixel-code-back-891804194195.southamerica-west1.run.app/api/v1/documents/${evento}`;
+            const url = `${import.meta.env.VITE_API_URL}/api/v1/documents/${evento}`;
             try {
                 const response = await fetch(url);
                 if (!response.ok) {
@@ -30,10 +32,11 @@ export default function CertificadoDescargaPage() {
                 setNombreE(data.description);
 
                 if (data.rows && Array.isArray(data.rows)) {
-                    const extractedEmails = data.rows.map((row) => row.email);
-                    setEmailsUsuario(extractedEmails);
+                    setEmailsUsuario(data.rows.map((row) => row.email));
+                    setFoliosUsuario(data.rows.map((row) => String(row.folio)));
                 } else {
                     setEmailsUsuario([]);
+                    setFoliosUsuario([]);
                 }
             } catch (err) {
                 console.error("Error al obtener datos iniciales:", err);
@@ -50,26 +53,31 @@ export default function CertificadoDescargaPage() {
         setCopied(false);
         setMensajeEncontrado("");
 
-        if (!email) {
-            setError("Por favor ingresa un correo.");
+        if (!email && !folio) {
+            setError("Por favor ingresa tu correo electrónico o folio.");
+            setIsLoading(false);
             return;
         }
 
-        if (!emailsUsuario.includes(email)) {
-            setError("Correo electrónico no encontrado en la lista de participantes.");
+        const emailValido = email && emailsUsuario.includes(email);
+        const folioValido = folio && foliosUsuario.includes(folio.trim());
+
+        if (!emailValido && !folioValido) {
+            setError("No se encontró el correo electrónico ni el folio en la lista de participantes.");
             setCertUrl("");
+            setIsLoading(false);
             return;
-        } else {
-            setMensajeEncontrado("Correo electrónico encontrado. Puede continuar.");
         }
 
-        // Llamada a la API para obtener el certificado con esta url: https://pixel-code-back-891804194195.southamerica-west1.run.app/api/v1/documents/get-certificado con un body que tiene el id del evento y el email
+        setMensajeEncontrado("Participante encontrado. Puede continuar.");
+
         const body = {
             idEvento: evento,
-            email: email,
+            email: email || undefined,
+            folio: folio.trim() || undefined,
         }
 
-        const url = `https://pixel-code-back-891804194195.southamerica-west1.run.app/api/v1/documents/get-certificado`;
+        const url = `${import.meta.env.VITE_API_URL}/api/v1/documents/get-certificado`;
         try {
             const response = await fetch(url, {
                 method: "POST",
@@ -142,14 +150,21 @@ export default function CertificadoDescargaPage() {
                     </p>
 
                     <form onSubmit={handleSubmit}>
-                        <label className="cert-label">* Email:</label>
+                        <label className="cert-label">Email:</label>
                         <input
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             className="cert-input"
                             placeholder="correo@ejemplo.com"
-                            required
+                        />
+                        <label className="cert-label">Folio:</label>
+                        <input
+                            type="text"
+                            value={folio}
+                            onChange={(e) => setFolio(e.target.value)}
+                            className="cert-input"
+                            placeholder="Ej: 1234"
                         />
                         <button
                             type="submit"

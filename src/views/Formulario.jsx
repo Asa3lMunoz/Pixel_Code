@@ -24,7 +24,7 @@ export default function Formulario() {
     }
 
     try {
-      const response = await fetch('https://pixel-code-back-891804194195.southamerica-west1.run.app/api/v1/contactRequests', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/contactRequests`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

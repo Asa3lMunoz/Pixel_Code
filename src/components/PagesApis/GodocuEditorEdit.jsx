@@ -45,7 +45,7 @@ const GodocuEditorEdit = () => {
     }
 
     // Carga de datos
-    fetch(`https://pixel-code-back-891804194195.southamerica-west1.run.app/api/v1/documents/${eventId}`)
+    fetch(`${import.meta.env.VITE_API_URL}/api/v1/documents/${eventId}`)
         .then(res => res.json())
         .then(({ data }) => {
             const doc = data.docRef;
@@ -129,7 +129,7 @@ const GodocuEditorEdit = () => {
             if(dataFile) formData.append("xlsxFile", dataFile);
 
             try {
-                const response = await fetch(`https://pixel-code-back-891804194195.southamerica-west1.run.app/api/v1/documents/`, {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/documents/`, {
                     method: "POST", // O "PUT" si tu API lo requiere
                     body: formData,
                 });
