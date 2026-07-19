@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "pixelcodepro-28b9c",
     "public": "dist",
     "ignore": [
       "firebase.json",
