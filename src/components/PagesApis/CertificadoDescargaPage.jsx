@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 export default function CertificadoDescargaPage() {
     const {evento} = useParams();
     const [isLoading, setIsLoading] = useState(false);
-    const [email, setEmail] = useState("");
+    const [query, setQuery] = useState("");
     const [error, setError] = useState("");
     const [certUrl, setCertUrl] = useState("");
     const [copied, setCopied] = useState(false);
@@ -15,7 +15,6 @@ export default function CertificadoDescargaPage() {
     const [foliosUsuario, setFoliosUsuario] = useState([]);
     const [initialData, setInitialData] = useState(null);
     const [mensajeEncontrado, setMensajeEncontrado] = useState("");
-    const [folio, setFolio] = useState("");
 
     useEffect(() => {
         const fetchData = async () => {
@@ -53,14 +52,18 @@ export default function CertificadoDescargaPage() {
         setCopied(false);
         setMensajeEncontrado("");
 
-        if (!email && !folio) {
+        if (!query) {
             setError("Por favor ingresa tu correo electrónico o folio.");
             setIsLoading(false);
             return;
         }
 
-        const emailValido = email && emailsUsuario.includes(email);
-        const folioValido = folio && foliosUsuario.includes(folio.trim());
+        const isEmail = query.includes("@");
+        const email = isEmail ? query : "";
+        const folio = isEmail ? "" : query.trim();
+
+        const emailValido = isEmail && emailsUsuario.includes(email);
+        const folioValido = !isEmail && foliosUsuario.includes(folio);
 
         if (!emailValido && !folioValido) {
             setError("No se encontró el correo electrónico ni el folio en la lista de participantes.");
@@ -74,7 +77,7 @@ export default function CertificadoDescargaPage() {
         const body = {
             idEvento: evento,
             email: email || undefined,
-            folio: folio.trim() || undefined,
+            folio: folio || undefined,
         }
 
         const url = `${import.meta.env.VITE_API_URL}/api/v1/documents/get-certificado`;
@@ -103,7 +106,7 @@ export default function CertificadoDescargaPage() {
                 // window.open(url, "_blank");
                 const link = document.createElement("a");
                 link.href = url;
-                link.download = `certificado-${evento}-${email}.pdf`;
+                link.download = `certificado-${evento}-${query}.pdf`;
                 link.click();
 
 
@@ -146,25 +149,17 @@ export default function CertificadoDescargaPage() {
 
                     <h1 className="cert-title">Descargue su certificado</h1>
                     <p className="cert-subtitle">
-                        Ingresando con el email que se registró para el evento: <strong>{NombreEvento}</strong>
+                        Ingresando con el email o folio que se registró para el evento: <strong>{NombreEvento}</strong>
                     </p>
 
                     <form onSubmit={handleSubmit}>
-                        <label className="cert-label">Email:</label>
-                        <input
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            className="cert-input"
-                            placeholder="correo@ejemplo.com"
-                        />
-                        <label className="cert-label">Folio:</label>
+                        <label className="cert-label">Email o Folio:</label>
                         <input
                             type="text"
-                            value={folio}
-                            onChange={(e) => setFolio(e.target.value)}
+                            value={query}
+                            onChange={(e) => setQuery(e.target.value)}
                             className="cert-input"
-                            placeholder="Ej: 1234"
+                            placeholder="correo@ejemplo.com o 1234"
                         />
                         <button
                             type="submit"
