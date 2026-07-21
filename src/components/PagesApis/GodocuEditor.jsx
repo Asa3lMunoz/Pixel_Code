@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import HeaderPanel from "../HeaderPanel";
 import Menuadm from "../Menuadm";
 import Swal from 'sweetalert2'
+import { storage } from "../../config/firebase";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 const GodocuEditor = () => {
     const [bannerImage, setBannerImage] = useState(null);
@@ -35,7 +37,6 @@ const GodocuEditor = () => {
 
                     // 👇 Agregar aquí customFileUploader
                     customFileUploader: function (file, done) {
-                        const storage = getStorage(app);
                         const storageRef = ref(storage, `certificados/${Date.now()}_${file.name}`);
                         const uploadTask = uploadBytesResumable(storageRef, file);
 
