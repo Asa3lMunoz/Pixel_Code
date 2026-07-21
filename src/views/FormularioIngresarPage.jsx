@@ -77,7 +77,7 @@ function FormularioIngresarPage() {
     };
 
     return (
-        <>
+        <div className="ingresarpage">
             <Header />
             <div className="formulario-container">
                 <div className="formularioingresarpagediv">
@@ -113,7 +113,10 @@ function FormularioIngresarPage() {
                     </form>
                 </div>
             </div>
-        </>
+            <div className="footeringresarpage">
+                <Footer />
+            </div>
+        </div>
     );
 }
 export default FormularioIngresarPage;

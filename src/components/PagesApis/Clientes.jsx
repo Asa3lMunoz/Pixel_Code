@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import HeaderPanel from "../HeaderPanel";
 import Menuadm from "../Menuadm";
 
@@ -7,8 +6,13 @@ export default function Clientes() {
     <div>
       <HeaderPanel />
       <Menuadm />
-      <div className="table-container">
-        <table className="custom-table">
+      <div className="adm-page-content">
+        <div className="adm-page-header">
+          <h1>Clientes</h1>
+          <p>Listado de clientes registrados</p>
+        </div>
+        <div className="contenedor-ADM">
+        <table className="contenedor-ADM-2">
           <thead>
             <tr>
               <th></th>
@@ -26,6 +30,7 @@ export default function Clientes() {
             {/* Aquí puedes agregar filas dinámicamente */}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );

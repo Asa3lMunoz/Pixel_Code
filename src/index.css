@@ -100,9 +100,8 @@ a{
 /************************************************/
 /************************************************/
 /************************************************/
-.indexpageblobal footer{
-  /* background-color: red; */
-  margin-top: 5rem;
+.indexpageblobal footer {
+  margin-top: 2rem;
   padding-bottom: 2rem;
 }
 .hero {
@@ -316,126 +315,126 @@ div .parrafo{
 /************************************************/
 /************************************************/
 /************************************************/
-.formulariodiv{
+.formulariodiv {
   background-color: #F0F8FF;
   display: flex;
   justify-content: center;
-  padding-bottom: 5rem;
+  padding: 3rem 1.5rem;
 }
-.formulariodiv-text h2{
+
+.FormularioMensaje {
+  width: 100%;
+  max-width: 580px;
+}
+
+.formulariodiv-text h2 {
   color: #0270ca;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   font-size: 2rem;
 }
-.formulariodiv-text p{
-  margin-bottom: 2rem;
+
+.formulariodiv-text p {
+  margin-bottom: 1.75rem;
+  color: #444;
 }
-.formulariodiv-datos span{
+
+.formulariodiv-datos span {
   color: red;
   margin-right: 5px;
 }
 
-.formulariodiv-datos input{
-  /* background-color: greenyellow; */
-  margin-left: 9rem;
+.formulariodiv-datos-nombre,
+.formulariodiv-datos-apellido,
+.formulariodiv-datos-email,
+.formulariodiv-datos-telefono,
+.formulariodiv-datos-mensaje {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.formulariodiv-datos label {
+  min-width: 120px;
+  text-align: right;
+  padding-top: 9px;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.formulariodiv-datos input {
+  flex: 1;
   width: 100%;
-  margin-bottom: 3rem;
-  position: relative;
-  bottom: 1.5rem;
-  border: solid 1px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 10px 5px; 
+  padding: 9px 10px;
 }
-.formulariodiv-datos textarea{
+
+.formulariodiv-datos textarea {
+  flex: 1;
   width: 100%;
-  height: 10rem;
-  /* background-color: red; */
-  margin-left: 9rem;
+  height: 8rem;
   border-radius: 5px;
-  border: solid 1px;
-  padding: 5px 5px;
+  border: 1px solid #ccc;
+  padding: 8px 10px;
 }
-.formulariodiv-datos-mensaje{
-  /* background-color: gray; */
-  width: 40rem;
+
+.formulariodiv-datos-mensaje label {
+  padding-top: 9px;
 }
-.formulariodiv-datos-mensaje label{
-  /* background-color: aqua; */
-  position: relative;
-  top: 1rem;
+
+.formulariodiv-datos-enviar {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
 }
-.formulariodiv-datos-enviar button{
-  margin-top: 3rem;
-  position: relative;
-  left: 20rem;
+
+.formulariodiv-datos-enviar button {
   background-color: #0270ca;
   color: white;
   border-radius: 5px;
-  padding: 1rem 4rem;
-  font-size: 1.2rem;
+  padding: 0.75rem 2.5rem;
+  font-size: 1rem;
   font-weight: bold;
   border: none;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
-}
-.formulariodiv-datos-enviar button:hover{
-  background-color: #028cfd;
-  transition: 0.2s;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
   cursor: pointer;
 }
 
+.formulariodiv-datos-enviar button:hover {
+  background-color: #028cfd;
+  transition: 0.2s;
+}
+
 @media (max-width: 600px) {
-  .formulariodiv{
-    /* background-color: red; */
+  .formulariodiv {
     position: relative;
     bottom: 36.6rem;
+    padding: 2rem 1.25rem;
   }
-  .formulariodiv-text{
-    /* background-color: red; */
-    margin-left: 9rem;
-    margin-top: 3rem;
-    width: 23rem;
+  .formulariodiv-text {
+    margin-top: 2rem;
   }
-  .formulariodiv-text p{
-    /* background-color: #306998; */
+  .formulariodiv-datos-nombre,
+  .formulariodiv-datos-apellido,
+  .formulariodiv-datos-email,
+  .formulariodiv-datos-telefono,
+  .formulariodiv-datos-mensaje {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .formulariodiv-datos label {
+    text-align: left;
+    padding-top: 0;
+    min-width: auto;
+  }
+  .formulariodiv-datos input,
+  .formulariodiv-datos textarea {
     width: 100%;
   }
-  .formulariodiv-datos{
-    /* background-color: yellow; */
-    width: 80%;
-    margin-top: 4rem;
-  }
-  .formulariodiv-datos label{
-    display: block;
-    /* background-color: yellow; */
-    font-size: 1rem;
-    width: 13rem;
-    position: relative;
-    bottom: 2rem;
-    left: 9rem;
-  }
-  .formulariodiv-datos-mensaje label{
-    /* background-color: red; */
-    margin-bottom: 1.5rem;
-  }
-  .formulariodiv-datos input{
-    /* background-color: red; */
-    width: 22rem;
-  }
-  .formulariodiv-datos textarea{
-    width: 22rem;
-    /* background-color: red; */
-  }
   .formulariodiv-datos-enviar {
-    width: 31rem;    
+    justify-content: center;
   }
-  .formulariodiv-datos-enviar button{
-    /* background-color: red; */
-    position: relative;
-    left: 14rem;
-    
-
-  }
-  
 }
 /************************************************/
 /************Forgot *****************/
@@ -548,15 +547,15 @@ div .parrafo{
 /************************************************/
 /************************************************/
 /************************************************/
-footer{
+footer {
   display: flex;
   justify-content: space-evenly;
-  /* margin-top: 4rem; */
-  /* margin-bottom: 4rem; */
+  align-items: center;
+  padding: 1.5rem 2rem;
 }
-footer div{
-  margin-right: 6rem;
-  margin-left: 6rem;
+footer div {
+  margin-right: 2rem;
+  margin-left: 2rem;
 }
 
 .logoFoter {
@@ -572,12 +571,9 @@ footer div{
 }
 
 
-.footerlogo p{
-  /* background-color: red; */
-  position: relative;
-  right: 3rem;
-  top: 1rem;
+.footerlogo p {
   font-weight: 600;
+  margin-top: 0.5rem;
 }
 
 .footercontacto{
@@ -639,123 +635,132 @@ footer div{
 /************************************************INGRESAR PAGE************************************************/
 /************************************************INGRESAR PAGE************************************************/
 
-.formularioingresarpagediv {
+.ingresarpage {
   display: flex;
-  justify-content: center;
-  padding: 2rem; /* Añadí padding para espacio interno */
-  /* Eliminé margin-left: -50px; y margin-bottom: -20rem; */
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.formularioingresarpagediv form {
-  width: 100%; /* El formulario ocupa todo el ancho */
-  max-width: 400px; /* Ancho máximo para evitar que se estire demasiado */
+.ingresarpage .formulario-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 2rem 1rem;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+.formularioingresarpagediv {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 400px;
+  text-align: left;
 }
 
 .formularioingresarpagediv h2 {
-  font-size: 1.8rem;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  text-align: center; /* Centrar el título */
-  margin-bottom: 1rem; /* Espacio debajo del título */
-  margin-left: 0; /* Elimino el margin left que tenia */
+  font-size: 1.6rem;
+  font-family: 'Saira', sans-serif;
+  text-align: center;
+  color: #0270ca;
+  margin-bottom: 1.5rem;
 }
 
 .formularioingresarpagediv-ingreso {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .formularioingresarpagediv-ingreso-email,
 .formularioingresarpagediv-ingreso-contraseña {
-  margin-bottom: 1rem;
+  margin-bottom: 1.1rem;
 }
 
 .formularioingresarpagediv-ingreso span {
   color: red;
-  margin-right: 5px;
+  margin-right: 4px;
 }
 
 .formularioingresarpagediv-ingreso label {
   display: block;
-  font-size: 14px;
-  margin-bottom: 0.2rem;
-  position: static; /* Elimino posicionamiento relativo */
-  left: 0; /* Elimino posicionamiento relativo */
-  right: 0; /* Elimino posicionamiento relativo */
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 0.35rem;
 }
 
 .formularioingresarpagediv-ingreso input {
-  width: 100%; /* Input ocupa todo el ancho */
-  padding: 0.5rem;
-  border: 1px solid lightgray;
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
   outline: none;
-  position: static; /* Elimino posicionamiento relativo */
-  bottom: 0; /* Elimino posicionamiento relativo */
-  margin-left: 0; /* Elimino margenes */
+  transition: border-color 0.2s;
+}
+
+.formularioingresarpagediv-ingreso input:focus {
+  border-color: #0270ca;
 }
 
 .formularioingresarpagediv-boton button {
-  color: white;
+  width: 100%;
+  margin-top: 1.25rem;
+  padding: 0.75rem;
   background-color: #0060af;
+  color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 3px;
-  display: block;
-  margin: 1rem auto; /* Centrar el botón */
-  margin-left: auto; /* Elimino margenes */
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+
+.formularioingresarpagediv-boton button:hover {
+  background-color: #028cfd;
+  box-shadow: 0 4px 14px rgba(2, 140, 253, 0.45);
+  transform: translateY(-1px);
+}
+
+.formularioingresarpagediv-boton button:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 .formularioingresarpagediv-recuperar {
   text-align: center;
-  margin-top: 1rem;
-  font-size: 13px;
-  margin-left: 0; /* Elimino margenes */
+  margin-top: 1.25rem;
+  font-size: 0.82rem;
+  color: #555;
 }
 
 .formularioingresarpagediv-recuperar p {
-  padding: 6px;
+  padding: 4px 0;
 }
 
 .formularioingresarpagediv-recuperar span {
-  color: #028cfd;
+  color: #0270ca;
+  font-weight: 600;
 }
 
 .footeringresarpage {
   background-color: #F8F9FA;
-  margin-top: 18.7rem; 
-  padding-bottom: 2rem;
-  padding-top: 2rem;
-
+  padding: 1.5rem 0;
+  border-top: 1px solid #e8e8e8;
+  flex-shrink: 0;
 }
 
-/* Media Queries */
 @media (max-width: 600px) {
-  .formularioingresarpagediv form {
-    width: 90%; /* Ajusta el ancho para pantallas pequeñas */
-  }
-
-  .footeringresarpage{
-    margin-top: 8rem; 
-    padding-bottom: 3rem; /* Ajuste padding */
-    /* margin-bottom: -50rem; */
-    background-color: #F8F9FA;
-  }
-
-  .formularioingresarpagediv-recuperar {
-    text-align: center;
-    position: static; /* Elimino posicionamiento relativo */
-    right: 0; /* Elimino posicionamiento relativo */
-  }
-
-  /* Elimino los estilos que posicionaban los elementos de manera relativa */
-  .formularioingresarpagediv label {
-    position: static;
-    left: 0;
-    bottom: 0;
-  }
-
-  .formularioingresarpagediv input {
-    width: 100%;
-    position: static;
-    bottom: 0;
+  .formularioingresarpagediv {
+    padding: 2rem 1.25rem;
   }
 }
 /************************************************FORMULARIO SIGNUP************************************************/
@@ -1133,117 +1138,185 @@ footer div{
 /**********************COMPONENTE MENUADM**************************/
 /**********************COMPONENTE MENUADM**************************/
 
-.sidebar {
-  width: 200px;
-  height: 100vh;
-  background: #f8f9fa;
-  padding: 20px;
+/* Top bar del panel admin */
+.adm-topbar {
   position: fixed;
-  left: 0;
   top: 0;
-  z-index: 1000;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  z-index: 100;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 
-.sidebar ul {
+.adm-topbar-logo img {
+  height: 38px;
+  width: auto;
+  margin-left: 8px;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  bottom: 0;
+  width: 240px;
+  background: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  z-index: 99;
+  overflow-y: auto;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 12px 8px;
+}
+
+.sidebar-nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.sidebar ul li {
-  margin: 15px 0;
+.sidebar-nav ul li {
+  margin: 2px 0;
 }
 
-.sidebar ul li a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
+.sidebar-link {
   display: flex;
   align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #4a5568;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
 }
 
-.sidebar ul li a:hover {
-  color: #a69a9a;
+.sidebar-link:hover {
+  background: #f0f7ff;
+  color: #0270ca;
 }
 
-.main-content {
-  margin-left: 200px; /* importante: igual al ancho de .sidebar */
-  padding: 20px;
-  position: relative;
-  min-height: 100vh;
-  background-color: #fff;
+.sidebar-link.active {
+  background: #e8f4fd;
+  color: #0270ca;
+  font-weight: 600;
 }
 
+.sidebar-icon {
+  font-size: 16px;
+  width: 22px;
+  text-align: center;
+  flex-shrink: 0;
+}
 
+.sidebar-footer {
+  padding: 14px 16px;
+  border-top: 1px solid #e2e8f0;
+}
 
-/**********************COMPONENTE GODOCU-PAGE1 + Usuarios + Documentos + Clientes + Dashboard + Contactos**************************/
-/**********************COMPONENTE GODOCU-PAGE1 + Usuarios + Documentos + Clientes + Dashboard + Contactos**************************/
-/**********************COMPONENTE GODOCU-PAGE1 + Usuarios + Documentos + Clientes + Dashboard + Contactos**************************/
-/**********************COMPONENTE GODOCU-PAGE1 + Usuarios + Documentos + Clientes + Dashboard + Contactos**************************/
-.table-container {
-  max-width: 1450px;
-  margin: 0 auto;
-  padding: 20px;
+/* Logout button dentro del sidebar */
+.logout-link {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.custom-table {
+  align-items: center;
+  gap: 8px;
   width: 100%;
-  border-collapse: collapse;
-  background: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.custom-table th,
-.custom-table td {
-  padding: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: none;
+  border: none;
+  color: #e53e3e;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
   text-align: left;
-  border-bottom: 1px solid #ddd;
 }
 
-.custom-table th {
-  background-color: #f4f4f4;
-  font-weight: bold;
+.logout-link:hover {
+  background: #fff5f5;
 }
 
-.custom-table tbody tr:hover {
-  background-color: #f1f1f1;
+/* Contenedor de las páginas admin */
+.adm-page-content {
+  margin-left: 240px;
+  padding-top: 64px;
+  min-height: 100vh;
+  background: #f5f7fa;
+}
+
+/* Encabezado dentro de cada página */
+.adm-page-header {
+  padding: 28px 32px 0;
+}
+
+.adm-page-header h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0 0 4px;
+}
+
+.adm-page-header p {
+  font-size: 13px;
+  color: #718096;
+  margin: 0 0 20px;
 }
 
 
+
+/**********************COMPONENTE GODOCU-PAGE1 + Usuarios + Documentos + Clientes + Dashboard + Contactos**************************/
+/**********************COMPONENTE GODOCU-PAGE1 + Usuarios + Documentos + Clientes + Dashboard + Contactos**************************/
+/**********************COMPONENTE GODOCU-PAGE1 + Usuarios + Documentos + Clientes + Dashboard + Contactos**************************/
+/**********************COMPONENTE GODOCU-PAGE1 + Usuarios + Documentos + Clientes + Dashboard + Contactos**************************/
+
+
 /**********************COMPONENTE GodocuEditor**************************/
 /**********************COMPONENTE GodocuEditor**************************/
 /**********************COMPONENTE GodocuEditor**************************/
 /**********************COMPONENTE GodocuEditor**************************/
 
-/* Estilos generales */
 .container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 20px;
+  margin-left: 240px;
+  padding: 80px 32px 32px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
+  min-height: 100vh;
+  background: #f5f7fa;
 }
 
-/* Contenedor del formulario */
-.form-container, .editor-container {
-  background: #f9f9f9;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+.form-container,
+.editor-container {
+  background: #ffffff;
+  padding: 28px 32px;
+  border-radius: 12px;
+  border: 1px solid #e8edf2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-h2 {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 15px;
-  color: #333;
+.form-container h2,
+.editor-container h2 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 22px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #0270ca;
+  display: inline-block;
 }
 
-/* Grid del formulario */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1254,292 +1327,339 @@ h2 {
   grid-column: span 2;
 }
 
-/* Campos de entrada */
-input, textarea {
+.form-container .grid > div > label,
+.form-container .full-width > label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.form-container input[type="text"],
+.form-container input[type="url"],
+.form-container textarea {
   width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 9px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
   font-size: 14px;
+  color: #2d3748;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-textarea {
+.form-container input[type="text"]:focus,
+.form-container input[type="url"]:focus,
+.form-container textarea:focus {
+  border-color: #0270ca;
+  box-shadow: 0 0 0 3px rgba(2, 112, 202, 0.1);
+}
+
+.form-container textarea {
   height: 80px;
+  resize: vertical;
 }
 
-/* Estilos para los radio buttons */
 .radio-group {
   display: flex;
-  gap: 15px;
+  gap: 20px;
   align-items: center;
+  margin-top: 6px;
 }
 
 .radio-group label {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #2d3748;
+  cursor: pointer;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
-/* Estilos de las áreas de subida de archivos */
 .dropzone {
-  border: 2px dashed #aaa;
-  padding: 15px;
+  border: 2px dashed #c8d6e5;
+  border-radius: 10px;
+  padding: 20px;
   text-align: center;
-  color: #666;
+  background: #f8fafc;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.dropzone:hover {
+  border-color: #0270ca;
+  background: #f0f7ff;
+}
+
+.dropzone label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.dropzone input[type="file"] {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #4a5568;
   cursor: pointer;
 }
 
-/* Editor de Emails */
 #editor-container {
   height: 600px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin-bottom: 16px;
 }
 
-/* Botón Guardar Diseño */
-.boton-guardar-diseño{
-  background-color: #007bff;
+.editor-container p {
+  font-size: 13px;
+  color: #718096;
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+.editor-container p code {
+  background: #f0f4f8;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #0270ca;
+}
+
+.editor-botones {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.boton-guardar-diseño {
+  background-color: #0270ca;
   color: white;
   border: none;
-  margin-right: 20px;
-  padding: 8px 20px;
-  font-size: 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-/* Botón Recargar Diseño */
-.boton-recargar-diseño{
-  background-color: #393a3c;
-  color: white;
-  border: none;
-  margin-right: 20px;
-  padding: 8px 20px;
-  font-size: 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-/* Botón Decargar Diseño */
-.boton-descargar-diseño{
-  background-color: #358931;
-  color: white;
-  border: none;
-  margin-right: 20px;
-  padding: 8px 20px;
-  font-size: 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-/* Botón Eliminar Diseño */
-.boton-eliminar-diseño{
-  background-color: #ffffff;
-  color: red;
-  border: 2px solid red;
-  margin-right: 20px;
-  padding: 8px 20px;
-  font-size: 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-
-/**********************COMPONENTE contactoRecep**************************/
-/**********************COMPONENTE contactoRecep**************************/
-/**********************COMPONENTE contactoRecep**************************/
-/**********************COMPONENTE contactoRecep**************************/
-.contactoRecep{
-  /* background-color: red; */
-  margin-top: -7rem;
-}
-.contenedorcontacto {
-  padding: 150px;
-  overflow-x: auto;
-  max-width: 1650px;
-  margin:  auto;
-}
-
-.contenedorcontacto-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 14px;
-  background-color: #fff;
-  color: #333;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.contenedorcontacto-table th,
-.contenedorcontacto-table td {
-  padding: 12px 16px;
-  text-align: left;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.contenedorcontacto-table thead {
-  background-color: #f5f5f5;
+  padding: 9px 22px;
+  font-size: 13px;
   font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.15s;
 }
 
-.contenedorcontacto-table tr:hover {
-  background-color: #f0f0f0;
+.boton-guardar-diseño:hover {
+  background-color: #0260b0;
+  transform: translateY(-1px);
 }
 
-.contenedorcontacto-table td:last-child {
-  text-align: center;
+.boton-recargar-diseño {
+  background-color: #f0f4f8;
+  color: #4a5568;
+  border: 1px solid #e2e8f0;
+  padding: 9px 22px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-/**********************documentosapi**************************/
-/**********************documentosapi**************************/
-/**********************documentosapi**************************/
-/**********************documentosapi**************************/
-.documentosapi{
-  /* background-color: red; */
-  margin-top: -7rem;
-  margin-left: 15rem;
-}
-.documentosapi td:nth-child(1){
-  /* background-color: red; */
-  width: 30rem;
-}
-.documentosapi td:nth-child(2){
-  /* background-color: red; */
-  width: 15rem;
-}
-/**********************dgodocupage**************************/
-/**********************godocupage**************************/
-/**********************godocupage**************************/
-/**********************godocupage**************************/
-.godocupage{
-  margin-top: -7rem;
-  margin-left: 9rem;
-}
-.godocupage a{
-  color: rgb(35, 105, 255);
+.boton-recargar-diseño:hover {
+  background-color: #e2e8f0;
 }
 
-/**********************COMPONENTE headerpaneldiv**************************/
-/**********************COMPONENTE headerpaneldiv**************************/
-/**********************COMPONENTE headerpaneldiv**************************/
-/**********************COMPONENTE headerpaneldiv**************************/
-.headerpaneldiv{
-  /* background-color: blueviolet; */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-} 
-.headerpaneldiv img{
-  /* background-color: yellow; */
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-  margin-left: 18rem;
-  width: 20rem;
+.boton-descargar-diseño {
+  background-color: #f0faf0;
+  color: #2d7a2d;
+  border: 1px solid #b7ddb7;
+  padding: 9px 22px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.boton-descargar-diseño:hover {
+  background-color: #d6f0d6;
+}
+
+.boton-eliminar-diseño {
+  background-color: #fff5f5;
+  color: #e53e3e;
+  border: 1px solid #fed7d7;
+  padding: 9px 22px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.boton-eliminar-diseño:hover {
+  background-color: #fed7d7;
 }
 
 
-
-/**********************PRUEBAS CONTENEDORES GLOBALES ADM**************************/
-/**********************PRUEBAS CONTENEDORES GLOBALES ADM**************************/
-/**********************PRUEBAS CONTENEDORES GLOBALES ADM**************************/
-/**********************PRUEBAS CONTENEDORES GLOBALES ADM**************************/
-
+/**********************CONTENEDORES Y TABLAS ADM**************************/
+/**********************CONTENEDORES Y TABLAS ADM**************************/
+/**********************CONTENEDORES Y TABLAS ADM**************************/
+/**********************CONTENEDORES Y TABLAS ADM**************************/
 
 .contenedor-ADM {
-  padding: 120px;
-  overflow-x: auto;
-  max-width: 1310px;
-  margin:  auto;
+  padding: 0 32px 32px;
 }
 
 .contenedor-ADM-2 {
   width: 100%;
   border-collapse: collapse;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 12px;
-  background-color: #fff;
-  color: #333;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 6px;
+  font-size: 14px;
+  background: #ffffff;
+  color: #2d3748;
+  border-radius: 10px;
   overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08), 0 0 0 1px #e2e8f0;
 }
 
-.contenedor-ADM-2 th,
-.contenedor-ADM-2 td {
-  padding: 12px 16px;
+.contenedor-ADM-2 thead tr {
+  background: #f8fafc;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.contenedor-ADM-2 th {
+  padding: 13px 16px;
   text-align: left;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.contenedor-ADM-2 thead {
-  background-color: #f5f5f5;
+  font-size: 12px;
   font-weight: 600;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
-.contenedor-ADM-2 tr:hover {
-  background-color: #f0f0f0;
+.contenedor-ADM-2 td {
+  padding: 13px 16px;
+  border-bottom: 1px solid #f0f4f8;
+  color: #2d3748;
 }
 
-.contenedor-ADM-2 td:last-child {
-  text-align: center;
+.contenedor-ADM-2 tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.contenedor-ADM-2 tbody tr:hover {
+  background: #f7faff;
 }
 
 /************PAGINACIÓN*******/
 .pagination {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  gap: 6px;
+  margin-top: 0;
+  padding: 14px 16px;
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  border-radius: 0 0 10px 10px;
   flex-wrap: wrap;
+  font-size: 13px;
+  color: #4a5568;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08), 0 0 0 1px #e2e8f0;
 }
 
 .pagination select {
-  padding: 0.2rem;
+  padding: 5px 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #4a5568;
+  outline: none;
+  background: white;
 }
 
 .pagination button {
-  padding: 0.3rem 0.6rem;
-  border: none;
-  background-color: #f0f0f0;
+  padding: 5px 10px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  border-radius: 6px;
   cursor: pointer;
-  border-radius: 4px;
+  font-size: 13px;
+  color: #4a5568;
+  min-width: 34px;
+  transition: all 0.15s;
+}
+
+.pagination button:hover:not(:disabled) {
+  border-color: #0270ca;
+  color: #0270ca;
+  background: #f0f7ff;
 }
 
 .pagination button.active {
-  font-weight: bold;
-  text-decoration: underline;
-  background-color: #ddd;
+  background: #0270ca;
+  color: white;
+  border-color: #0270ca;
+  font-weight: 600;
 }
 
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
 
- 
-
-
-
+/* Botones de acción sobre la tabla */
 .acciones-superiores {
   display: flex;
-  justify-content: flex-end;
-  padding: 10px 20px;
-  margin-bottom: 20px;
+  align-items: center;
+  gap: 10px;
+  padding: 0 0 16px;
 }
 
 .acciones-superiores button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 9px 20px;
+  font-size: 14px;
   font-weight: 500;
-  border-radius: 6px;
+  border-radius: 8px;
+  border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.2s;
+  background: #0270ca;
+  color: white;
 }
 
 .acciones-superiores button:hover {
-  background-color: #0056b3;
+  background: #0260b0;
+}
+
+/* Loading / Error states en tablas */
+.adm-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #718096;
+  font-size: 15px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08), 0 0 0 1px #e2e8f0;
+}
+
+/* Links dentro de tablas admin */
+.contenedor-ADM-2 a {
+  color: #0270ca;
+  text-decoration: none;
+}
+
+.contenedor-ADM-2 a:hover {
+  text-decoration: underline;
 }
 
 
@@ -1788,30 +1908,59 @@ textarea {
 
 .btn-detalles {
   background: transparent;
-  border: none;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
   cursor: pointer;
-  color: #000000;
+  color: #4a5568;
+  padding: 5px 10px;
+  font-size: 12px;
+  transition: all 0.15s;
+}
+
+.btn-detalles:hover {
+  background: #f0f7ff;
+  border-color: #0270ca;
+  color: #0270ca;
 }
 
 .detalle-descargas {
-  padding: 1rem;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+  padding: 20px 24px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.detalle-descargas h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #4a5568;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 14px;
 }
 
 .columnas-detalle {
   display: flex;
   justify-content: space-between;
-  margin-top: 0.5rem;
+  gap: 24px;
 }
 
 .columna {
   flex: 1;
-  padding: 0 1rem;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: #4a5568;
 }
 
 .columna strong {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 

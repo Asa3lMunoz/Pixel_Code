@@ -370,41 +370,41 @@ const GodocuEditor = () => {
                         Para que aparezcan los datos a reemplazar, rodea el nombre de la columna entre
                         <br/>
                         Por ejemplo, si tu archivo de datos incluye las
-                        columnas <code>"{"{{nombre}}"}"</code> y <code>"{"{{apellido}}"}"</code>:
+                        columnas <code>"{"{{nombre}}"}"</code> y <code>"{"{{apellido}}"}"</code> o <code>"{"{{folio}}"}"</code>:
                     </p>
                     <div
                         id="editor-container"
                         style={{minHeight: "500px", border: "1px solid #ccc"}}
                     ></div>
-                    <button
-                        type="button"
-                        className="boton-guardar-diseño"
-                        onClick={handleSubmit}
-                        disabled={isLoading} // Deshabilitar mientras está cargando
-                    >
-                        {isLoading ? "⏳ Guardando..." : "📂 Guardar evento"}
-                    </button>
-
-                    <button
-                        type="button"
-                        className="boton-recargar-diseño"
-                        onClick={handleRecargarDiseno}
-                        style={{marginLeft: "10px"}}
-                    >
-                        🔄 Recargar diseño
-                    </button>
-
-                    {downloadUrl && (
-                        <a
-                            href={downloadUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="boton-descargar-json"
-                            style={{display: "inline-block", marginTop: "10px"}}
+                    <div className="editor-botones">
+                        <button
+                            type="button"
+                            className="boton-guardar-diseño"
+                            onClick={handleSubmit}
+                            disabled={isLoading}
                         >
-                            📥 Descargar Diseño JSON
-                        </a>
-                    )}
+                            {isLoading ? "⏳ Guardando..." : "📂 Guardar evento"}
+                        </button>
+
+                        <button
+                            type="button"
+                            className="boton-recargar-diseño"
+                            onClick={handleRecargarDiseno}
+                        >
+                            🔄 Recargar diseño
+                        </button>
+
+                        {downloadUrl && (
+                            <a
+                                href={downloadUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="boton-descargar-diseño"
+                            >
+                                📥 Descargar JSON
+                            </a>
+                        )}
+                    </div>
                 </div>
             </div>
         </>

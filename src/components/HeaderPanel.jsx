@@ -1,14 +1,13 @@
 import React from 'react'
 import logo from '../img/logo.png'
+
 function HeaderPanel() {
   return (
-    <>
-        <header>
-            <div className='headerpaneldiv'>
-                <img src={logo} alt="logo.png"/> 
-            </div>
-        </header>
-    </>
+    <header className="adm-topbar">
+      <div className="adm-topbar-logo">
+        <img src={logo} alt="logo" />
+      </div>
+    </header>
   )
 }
 
