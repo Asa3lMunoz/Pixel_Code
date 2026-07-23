@@ -25,7 +25,6 @@ export default function FormularioSignup() {
       alert("Las contraseñas no coinciden");
       return;
     }
-    console.log("Formulario enviado:", formData);
   };
 
   return (

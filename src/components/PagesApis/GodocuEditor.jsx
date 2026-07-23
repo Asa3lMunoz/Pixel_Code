@@ -77,7 +77,6 @@ const GodocuEditor = () => {
         const file = e.target.files[0];
         if (file) {
             setDataFile(file);
-            console.log("Archivo de datos seleccionado:", file);
         }
     };
 
@@ -215,7 +214,6 @@ const GodocuEditor = () => {
                     const certResult = await resCert.json();
                     if (resCert.ok) {
                         alert("🎉 Certificados generados exitosamente.");
-                        console.log("Ruta base de certificados:", certResult.rutaBase);
                     } else {
                         console.error(certResult.error);
                         alert("❌ Error generando certificados");

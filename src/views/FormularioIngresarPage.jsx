@@ -40,10 +40,6 @@ function FormularioIngresarPage() {
                     const rolesU = datosApi.user.roles;
                     let assignedRole = "Cliente"; // Rol por defecto
 
-                    console.log("Usuario logeado correctamente")
-                    console.log("Nombre :", datosU.firstName)
-                    console.log("Apellido ", datosU.lastName)
-
                     SetNombre(datosU.firstName);
                     SetApellido(datosU.lastName);
 
@@ -65,14 +61,10 @@ function FormularioIngresarPage() {
                     navigate('/');
 
                 } else {
-                    console.log(datosApi.error)
                     alert(datosApi.error, " Volver a ingresar el email o contrasena")
                 }
-            } else {
-                console.log("Se ha encontrado un error", respAPi.status);
             }
         } catch (error) {
-            console.log("Hubo un error:", error);
         }
     };
 

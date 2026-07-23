@@ -134,7 +134,6 @@ const GodocuEditorEdit = () => {
                     body: formData,
                 });
                 const result = await response.json();
-                console.log("Respuesta del servidor:", result); // Para depuración
 
                 if (result.success) {
                     await Swal.fire({

@@ -41,7 +41,6 @@ export default function Formulario() {
       });
 
       if (response.ok) {
-        console.log("Mensaje enviado correctamente sin error");
         setFirstName("");
         setLastName("");
         setEmail("");
@@ -130,7 +129,7 @@ export default function Formulario() {
 
             <div style={{ margin: "1rem 0", display: "flex", justifyContent: "center" }}>
               <ReCAPTCHA
-                sitekey="6LfJt0UrAAAAADIqi6f5ZRs9PFnMSpQueYyUhFQK"
+                sitekey="6LeqN2ItAAAAAPnz7LYg5L7oo2wZOnOc2dt81Whb"
                 onChange={handleCaptchaChange}
               />
             </div>

@@ -6,8 +6,7 @@ function LogoutButton() {
 
   const handleLogout = () => {
     localStorage.removeItem('user');
-    console.log('Sesión cerrada.');
-    navigate('/Login'); 
+    navigate('/Login');
   };
 
   return (
