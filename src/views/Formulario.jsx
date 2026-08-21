@@ -37,6 +37,7 @@ export default function Formulario() {
           mensaje: message,
           reviewed: false,
           answered: false,
+          recaptchaToken: captchaToken,
         }),
       });
 
