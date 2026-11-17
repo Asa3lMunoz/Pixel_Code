@@ -166,7 +166,7 @@ export default function GodocuApi() {
                             {history.length ? (
                               history.map((h, i) => (
                                 <div key={i}>
-                                  ✔ {h.email} ({h.downloads} veces)
+                                  ✔ Folio {h.folio} — {h.email} ({h.downloads} veces)
                                 </div>
                               ))
                             ) : (
@@ -177,7 +177,7 @@ export default function GodocuApi() {
                             <strong>Pendientes:</strong>
                             {pendientes.length ? (
                               pendientes.map((r, i) => (
-                                <div key={i}>• {r.email}</div>
+                                <div key={i}>• Folio {r.folio} — {r.email}</div>
                               ))
                             ) : (
                               <div>Todos descargaron</div>
